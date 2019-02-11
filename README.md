@@ -5,5 +5,5 @@ Professor:      Dr. Otto Dobretsberger
 Email:          odobrets@central.uh.edu
 Office Hours:   Saturday 12PM - 1PM
 
-Dev Language:   Java 8 SDK
+Dev Language:   Java 11 SDK
 IDE:            IntelliJ 16 (jetbrains.com/student), Maven, Flyway, JavaFX
