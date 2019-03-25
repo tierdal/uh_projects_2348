@@ -21,14 +21,14 @@ public class Hw3Ex2 {
         System.out.print("Do you want to roll until match (WARNING - MIGHT TAKE A LONG TIME) [True | False]: ");
         boolean roll_until_win = sc.nextBoolean();
 
-        Powerball Roll_1 = new Powerball();
-        Roll_1.roll_ball();
+        Powerball Roll = new Powerball();
+        Roll.roll_ball();
 
-        if (roll_until_win == false) {
-            System.out.println("Winning Numbers: " + Roll_1.ball_1 + " " + Roll_1.ball_2 + " " + Roll_1.ball_3 + " " + Roll_1.ball_4 + " " + Roll_1.ball_5 + " Powerball: " + Roll_1.powerball);
+        if (!roll_until_win) {
+            System.out.println("Winning Numbers: " + Roll.ball_1 + " " + Roll.ball_2 + " " + Roll.ball_3 + " " + Roll.ball_4 + " " + Roll.ball_5 + " Powerball: " + Roll.powerball);
         }
 
-        Roll_1.play(play_1,play_2,play_3,play_4,play_5,play_powerball,roll_until_win);
+        Roll.play(play_1,play_2,play_3,play_4,play_5,play_powerball,roll_until_win);
 
     }
 }
