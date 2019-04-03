@@ -4,11 +4,18 @@ import java.util.Random;
 import java.util.Arrays; //https://study.com/academy/lesson/how-to-sort-an-array-in-java.html
 
 public class Hw4 {
+
     public static void main(String[] args) {
         //do stuff
-        Scanner sc = new Scanner(System.in);
+        Functions system_functions = new Functions();
 
+        system_functions.init_game();
+
+        system_functions.test_vars();
+
+        system_functions.place_bet();
 
 
     }
+
 }
