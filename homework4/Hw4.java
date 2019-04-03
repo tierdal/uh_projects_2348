@@ -24,14 +24,18 @@ public class Hw4 {
 
             system_functions.deal_community();
 
+            //transfer money from bet to bank
             system_functions.fund_transfer();
 
+            //print vars for debug
             system_functions.debug_vars();
 
+            //ask whether to keep playing (if balance is 0 it will exit)
             runtime = system_functions.exit_prompt();
 
         }
 
+        //print exit message and end
         system_functions.exit_message();
 
     }

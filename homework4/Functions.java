@@ -58,7 +58,7 @@ public class Functions extends Player{
 
     public void fund_transfer(){
         if(is_winner){
-            player_bank.add_winnings(bet_amount);
+            player_bank.add_winnings(bet_amount * 2);
         } else {
             player_bank.subtract_winnings(bet_amount);
         }
