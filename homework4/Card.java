@@ -12,12 +12,4 @@ public class Card {
     public String returnCard(){
         return card_value[value] + " of " + card_suit[suit];
     }
-
-    public void setSuit(int suit) {
-        this.suit = suit;
-    }
-
-    public void setValue(int value) {
-        this.value = value;
-    }
 }

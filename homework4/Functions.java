@@ -6,21 +6,14 @@ public class Functions extends Player{
     //init Classes
     Player player_dealer = new Player();
     Player player_user = new Player();
+    Player player_community = new Player();
     Bank player_bank = new Bank();
     Deck card_deck = new Deck();
-    /*Card player_card_1 = new Card();
-    Card player_card_2 = new Card();
-    Card bank_card_1 = new Card();
-    Card bank_card_2 = new Card();
-    Card community_card_1 = new Card();
-    Card community_card_2 = new Card();
-    Card community_card_3 = new Card();
-    Card community_card_4 = new Card();
-    Card community_card_5 = new Card();*/
 
     //init vars
     public Double bet_amount; //move out to place_bet
     public Boolean is_winner = false;
+    public int card_counter = 0;
 
     //init Scanner
     Scanner sc = new Scanner(System.in);
@@ -69,11 +62,6 @@ public class Functions extends Player{
         }
     }
 
-    /*
-    CHANGE THE WAY THIS WORKS:
-    Must build deck in order to avoid duplicate cards.
-     */
-
     public void buildDeck(){
         card_deck.buildNewDeck();
         card_deck.deck_shuffle();
@@ -82,7 +70,18 @@ public class Functions extends Player{
     }
 
     public void deal_cards(){
+        for (int card_number=0;card_number<2;card_number++){
+            player_dealer.setPlayer_hand(card_deck.getCard(card_counter++), card_number);
+        }
+        for (int card_number=0;card_number<2;card_number++){
+            player_user.setPlayer_hand(card_deck.getCard(card_counter++), card_number);
+        }
+    }
 
+    public void deal_community(){
+        for (int card_number=0;card_number<5;card_number++){
+            player_community.setCommunity_hand(card_deck.getCard(card_counter++), card_number);
+        }
     }
 
     private int roll_card_value(int roll_bound){
@@ -99,98 +98,6 @@ public class Functions extends Player{
         return roll_number;
     }
 
-    /*public void assignCards(){
-        //assign Value
-        player_card_1.setValue(roll_card_value(13));
-        player_card_1.setCard_value(assign_value(player_card_1.value));
-        player_card_2.setValue(roll_card_value(13));
-        player_card_2.setCard_value(assign_value(player_card_2.value));
-        bank_card_1.setValue(roll_card_value(13));
-        bank_card_1.setCard_value(assign_value(bank_card_1.value));
-        bank_card_2.setValue(roll_card_value(13));
-        bank_card_2.setCard_value(assign_value(bank_card_2.value));
-
-        //assign Suit
-        player_card_1.setSuit(roll_card_value(4));
-        player_card_1.setCard_suit(assign_suit(player_card_1.suit));
-        player_card_2.setSuit(roll_card_value(4));
-        player_card_2.setCard_suit(assign_suit(player_card_2.suit));
-        bank_card_1.setSuit(roll_card_value(4));
-        bank_card_1.setCard_suit(assign_suit(bank_card_1.suit));
-        bank_card_2.setSuit(roll_card_value(4));
-        bank_card_2.setCard_suit(assign_suit(bank_card_2.suit));
-    }
-
-    public void assignCommunity(){
-        /*community_card_1.setValue(roll_card_value(13));
-        community_card_1.setCard_value(assign_value(community_card_1.value));
-        community_card_2.setValue(roll_card_value(13));
-        community_card_2.setCard_value(assign_value(community_card_2.value));
-        community_card_3.setValue(roll_card_value(13));
-        community_card_3.setCard_value(assign_value(community_card_3.value));
-        community_card_4.setValue(roll_card_value(13));
-        community_card_4.setCard_value(assign_value(community_card_4.value));
-        community_card_5.setValue(roll_card_value(13));
-        community_card_5.setCard_value(assign_value(community_card_5.value));
-
-        community_card_1.setSuit(roll_card_value(4));
-        community_card_1.setCard_suit(assign_suit(community_card_1.suit));
-        community_card_2.setSuit(roll_card_value(4));
-        community_card_2.setCard_suit(assign_suit(community_card_2.suit));
-        community_card_3.setSuit(roll_card_value(4));
-        community_card_3.setCard_suit(assign_suit(community_card_3.suit));
-        community_card_4.setSuit(roll_card_value(4));
-        community_card_4.setCard_suit(assign_suit(community_card_4.suit));
-        community_card_5.setSuit(roll_card_value(4));
-        community_card_5.setCard_suit(assign_suit(community_card_5.suit));
-    }*/
-
-    /*private String assign_suit(int suit_value){
-        switch(suit_value) {
-            case 1:
-                return "Spades";
-            case 2:
-                return "Hearts";
-            case 3:
-                return "Clubs";
-            case 4:
-                return "Diamonds";
-        }
-        return null;
-    }
-
-    private String assign_value(int value){
-        switch(value){
-            case 1:
-                return "Ace";
-            case 2:
-                return "2";
-            case 3:
-                return "3";
-            case 4:
-                return "4";
-            case 5:
-                return "5";
-            case 6:
-                return "6";
-            case 7:
-                return "7";
-            case 8:
-                return "8";
-            case 9:
-                return "9";
-            case 10:
-                return "10";
-            case 11:
-                return "Jack";
-            case 12:
-                return "Queen";
-            case 13:
-                return "King";
-        }
-        return null;
-    }*/
-
     public void debug_vars(){
         System.out.println();
         System.out.println(player_user.playerName);
@@ -198,22 +105,18 @@ public class Functions extends Player{
         System.out.println("$" + player_bank.player_cash);
         System.out.println("$" + bet_amount);
         System.out.println();
-        System.out.println("--- CARDS -----------------------------------");
-        /*System.out.println(player_card_1.card_value + " of " + player_card_1.card_suit);
-        System.out.println(player_card_2.card_value + " of " + player_card_2.card_suit);
-        System.out.println(bank_card_1.card_value + " of " + bank_card_1.card_suit);
-        System.out.println(bank_card_2.card_value + " of " + bank_card_2.card_suit);
-        System.out.println();
-        System.out.println("--- COMMUNITY CARDS -------------------------");
-        System.out.println(community_card_1.card_value + " of " + community_card_1.card_suit);
-        System.out.println(community_card_2.card_value + " of " + community_card_2.card_suit);
-        System.out.println(community_card_3.card_value + " of " + community_card_3.card_suit);
-        System.out.println(community_card_4.card_value + " of " + community_card_4.card_suit);
-        System.out.println(community_card_5.card_value + " of " + community_card_5.card_suit);*/
-        System.out.println();
+        System.out.println("--- CARDS ------------");
         card_deck.printDeck();
         System.out.println();
+        System.out.println("--- DEALER -----------");
+        player_dealer.print_cards();
         System.out.println();
+        System.out.println("--- PLAYER -----------");
+        player_user.print_cards();
+        System.out.println();
+        System.out.println("--- COMMUNITY --------");
+        player_community.print_community();
+
 
     }
 }
