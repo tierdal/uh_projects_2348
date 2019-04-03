@@ -1,6 +1,10 @@
 public class Bank {
     public double player_cash;
 
+    public void setPlayer_cash(double player_cash) {
+        this.player_cash = player_cash;
+    }
+
     public void add_winnings(double bet_amount) {
         System.out.println("Congratulations, you've won " + bet_amount + "!");
         player_cash = player_cash + bet_amount;

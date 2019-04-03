@@ -19,7 +19,6 @@ public class Functions extends Player{
 
     //init vars
     Double bet_amount;
-    int card_rnd_roll;
 
     //init Scanner
     Scanner sc = new Scanner(System.in);
@@ -30,15 +29,13 @@ public class Functions extends Player{
         welcome_message();
 
         //init player balance
-        player_bank.player_cash = 1000;
+        player_bank.setPlayer_cash(1000);
 
         //init players
-        //try to use the funcions with in the class to access the attributes
-        //methods like setName(theNameYouWant);  instead of accessing the attribute directly.
-        player_dealer.playerName = "Bank";
+        player_dealer.setPlayerName("Bank");
         System.out.print("Please enter your name: ");
         String playerNameInput = sc.next();
-        player_user.playerName = playerNameInput;
+        player_user.setPlayerName(playerNameInput);
 
     }
 
@@ -66,48 +63,48 @@ public class Functions extends Player{
 
     public void assignCards(){
         //assign Value
-        player_card_1.value = roll_card_value(13);
-        player_card_1.card_value = assign_value(player_card_1.value);
-        player_card_2.value = roll_card_value(13);
-        player_card_2.card_value = assign_value(player_card_2.value);
-        bank_card_1.value = roll_card_value(13);
-        bank_card_1.card_value = assign_value(bank_card_1.value);
-        bank_card_2.value = roll_card_value(13);
-        bank_card_2.card_value = assign_value(bank_card_2.value);
+        player_card_1.setValue(roll_card_value(13));
+        player_card_1.setCard_value(assign_value(player_card_1.value));
+        player_card_2.setValue(roll_card_value(13));
+        player_card_2.setCard_value(assign_value(player_card_2.value));
+        bank_card_1.setValue(roll_card_value(13));
+        bank_card_1.setCard_value(assign_value(bank_card_1.value));
+        bank_card_2.setValue(roll_card_value(13));
+        bank_card_2.setCard_value(assign_value(bank_card_2.value));
 
         //assign Suit
-        player_card_1.suit = roll_card_value(4);
-        player_card_1.card_suit = assign_suit(player_card_1.suit);
-        player_card_2.suit = roll_card_value(4);
-        player_card_2.card_suit = assign_suit(player_card_2.suit);
-        bank_card_1.suit = roll_card_value(4);
-        bank_card_1.card_suit = assign_suit(bank_card_1.suit);
-        bank_card_2.suit = roll_card_value(4);
-        bank_card_2.card_suit = assign_suit(bank_card_2.suit);
+        player_card_1.setSuit(roll_card_value(4));
+        player_card_1.setCard_suit(assign_suit(player_card_1.suit));
+        player_card_2.setSuit(roll_card_value(4));
+        player_card_2.setCard_suit(assign_suit(player_card_2.suit));
+        bank_card_1.setSuit(roll_card_value(4));
+        bank_card_1.setCard_suit(assign_suit(bank_card_1.suit));
+        bank_card_2.setSuit(roll_card_value(4));
+        bank_card_2.setCard_suit(assign_suit(bank_card_2.suit));
     }
 
     public void assignCommunity(){
-        community_card_1.value = roll_card_value(13);
-        community_card_1.card_value = assign_value(community_card_1.value);
-        community_card_2.value = roll_card_value(13);
-        community_card_2.card_value = assign_value(community_card_2.value);
-        community_card_3.value = roll_card_value(13);
-        community_card_3.card_value = assign_value(community_card_3.value);
-        community_card_4.value = roll_card_value(13);
-        community_card_4.card_value = assign_value(community_card_4.value);
-        community_card_5.value = roll_card_value(13);
-        community_card_5.card_value = assign_value(community_card_5.value);
+        community_card_1.setValue(roll_card_value(13));
+        community_card_1.setCard_value(assign_value(community_card_1.value));
+        community_card_2.setValue(roll_card_value(13));
+        community_card_2.setCard_value(assign_value(community_card_2.value));
+        community_card_3.setValue(roll_card_value(13));
+        community_card_3.setCard_value(assign_value(community_card_3.value));
+        community_card_4.setValue(roll_card_value(13));
+        community_card_4.setCard_value(assign_value(community_card_4.value));
+        community_card_5.setValue(roll_card_value(13));
+        community_card_5.setCard_value(assign_value(community_card_5.value));
 
-        community_card_1.suit = roll_card_value(4);
-        community_card_1.card_suit = assign_suit(community_card_1.suit);
-        community_card_2.suit = roll_card_value(4);
-        community_card_2.card_suit = assign_suit(community_card_2.suit);
-        community_card_3.suit = roll_card_value(4);
-        community_card_3.card_suit = assign_suit(community_card_3.suit);
-        community_card_4.suit = roll_card_value(4);
-        community_card_4.card_suit = assign_suit(community_card_4.suit);
-        community_card_5.suit = roll_card_value(4);
-        community_card_5.card_suit = assign_suit(community_card_5.suit);
+        community_card_1.setSuit(roll_card_value(4));
+        community_card_1.setCard_suit(assign_suit(community_card_1.suit));
+        community_card_2.setSuit(roll_card_value(4));
+        community_card_2.setCard_suit(assign_suit(community_card_2.suit));
+        community_card_3.setSuit(roll_card_value(4));
+        community_card_3.setCard_suit(assign_suit(community_card_3.suit));
+        community_card_4.setSuit(roll_card_value(4));
+        community_card_4.setCard_suit(assign_suit(community_card_4.suit));
+        community_card_5.setSuit(roll_card_value(4));
+        community_card_5.setCard_suit(assign_suit(community_card_5.suit));
     }
 
     private int roll_card_value(int roll_bound){
@@ -124,74 +121,49 @@ public class Functions extends Player{
         return roll_number;
     }
     private String assign_suit(int suit_value){
-        String card_suit = "";// no need to create a variable (waste of memory)
-        //you can just return the String you need
-
-        switch(suit_value){
+        switch(suit_value) {
             case 1:
-                card_suit = "Spades"; // return "Spades";
-                break;
+                return "Spades";
             case 2:
-                card_suit = "Hearts";
-                break;
+                return "Hearts";
             case 3:
-                card_suit = "Clubs";
-                break;
+                return "Clubs";
             case 4:
-                card_suit = "Diamonds";
-                break;
+                return "Diamonds";
         }
-
-        return card_suit;
+        return null;
     }
-    
-    //same situatin as the switch above
-    private String assign_value(int value){
-        String card_value = "";
 
+    private String assign_value(int value){
         switch(value){
             case 1:
-                card_value = "Ace";
-                break;
+                return "Ace";
             case 2:
-                card_value = "2";
-                break;
+                return "2";
             case 3:
-                card_value = "3";
-                break;
+                return "3";
             case 4:
-                card_value = "4";
-                break;
+                return "4";
             case 5:
-                card_value = "5";
-                break;
+                return "5";
             case 6:
-                card_value = "6";
-                break;
+                return "6";
             case 7:
-                card_value = "7";
-                break;
+                return "7";
             case 8:
-                card_value = "8";
-                break;
+                return "8";
             case 9:
-                card_value = "9";
-                break;
+                return "9";
             case 10:
-                card_value = "10";
-                break;
+                return "10";
             case 11:
-                card_value = "Jack";
-                break;
+                return "Jack";
             case 12:
-                card_value = "Queen";
-                break;
+                return "Queen";
             case 13:
-                card_value = "King";
-                break;
+                return "King";
         }
-
-        return card_value;
+        return null;
     }
 
     public void debug_vars(){
