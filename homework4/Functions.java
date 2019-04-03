@@ -84,6 +84,30 @@ public class Functions extends Player{
         bank_card_2.card_suit = assign_suit(bank_card_2.suit);
     }
 
+    public void assignCommunity(){
+        community_card_1.value = roll_card_value(13);
+        community_card_1.card_value = assign_value(community_card_1.value);
+        community_card_2.value = roll_card_value(13);
+        community_card_2.card_value = assign_value(community_card_2.value);
+        community_card_3.value = roll_card_value(13);
+        community_card_3.card_value = assign_value(community_card_3.value);
+        community_card_4.value = roll_card_value(13);
+        community_card_4.card_value = assign_value(community_card_4.value);
+        community_card_5.value = roll_card_value(13);
+        community_card_5.card_value = assign_value(community_card_5.value);
+
+        community_card_1.suit = roll_card_value(4);
+        community_card_1.card_suit = assign_suit(community_card_1.suit);
+        community_card_2.suit = roll_card_value(4);
+        community_card_2.card_suit = assign_suit(community_card_2.suit);
+        community_card_3.suit = roll_card_value(4);
+        community_card_3.card_suit = assign_suit(community_card_3.suit);
+        community_card_4.suit = roll_card_value(4);
+        community_card_4.card_suit = assign_suit(community_card_4.suit);
+        community_card_5.suit = roll_card_value(4);
+        community_card_5.card_suit = assign_suit(community_card_5.suit);
+    }
+
     private int roll_card_value(int roll_bound){
         Boolean roll_0 = false;
         int roll_number = 0;
@@ -165,16 +189,25 @@ public class Functions extends Player{
         return card_value;
     }
 
-    public void test_vars(){
+    public void debug_vars(){
         System.out.println();
         System.out.println(player_user.playerName);
         System.out.println(player_dealer.playerName);
         System.out.println("$" + player_bank.player_cash);
         System.out.println("$" + bet_amount);
+        System.out.println();
+        System.out.println("--- CARDS -----------------------------------");
         System.out.println(player_card_1.card_value + " of " + player_card_1.card_suit);
         System.out.println(player_card_2.card_value + " of " + player_card_2.card_suit);
         System.out.println(bank_card_1.card_value + " of " + bank_card_1.card_suit);
         System.out.println(bank_card_2.card_value + " of " + bank_card_2.card_suit);
+        System.out.println();
+        System.out.println("--- COMMUNITY CARDS -------------------------");
+        System.out.println(community_card_1.card_value + " of " + community_card_1.card_suit);
+        System.out.println(community_card_2.card_value + " of " + community_card_2.card_suit);
+        System.out.println(community_card_3.card_value + " of " + community_card_3.card_suit);
+        System.out.println(community_card_4.card_value + " of " + community_card_4.card_suit);
+        System.out.println(community_card_5.card_value + " of " + community_card_5.card_suit);
         System.out.println();
         System.out.println();
         System.out.println();

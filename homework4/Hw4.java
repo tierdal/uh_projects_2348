@@ -15,7 +15,9 @@ public class Hw4 {
 
         system_functions.assignCards();
 
-        system_functions.test_vars();
+        system_functions.assignCommunity();
+
+        system_functions.debug_vars();
 
 
 
