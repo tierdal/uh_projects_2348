@@ -33,6 +33,8 @@ public class Functions extends Player{
         player_bank.player_cash = 1000;
 
         //init players
+        //try to use the funcions with in the class to access the attributes
+        //methods like setName(theNameYouWant);  instead of accessing the attribute directly.
         player_dealer.playerName = "Bank";
         System.out.print("Please enter your name: ");
         String playerNameInput = sc.next();
@@ -122,11 +124,12 @@ public class Functions extends Player{
         return roll_number;
     }
     private String assign_suit(int suit_value){
-        String card_suit = "";
+        String card_suit = "";// no need to create a variable (waste of memory)
+        //you can just return the String you need
 
         switch(suit_value){
             case 1:
-                card_suit = "Spades";
+                card_suit = "Spades"; // return "Spades";
                 break;
             case 2:
                 card_suit = "Hearts";
@@ -141,6 +144,8 @@ public class Functions extends Player{
 
         return card_suit;
     }
+    
+    //same situatin as the switch above
     private String assign_value(int value){
         String card_value = "";
 
