@@ -19,7 +19,7 @@ public class Functions extends Player{
     Card community_card_5 = new Card();*/
 
     //init vars
-    Double bet_amount;
+    Double bet_amount; //move out to place_bet
 
     //init Scanner
     Scanner sc = new Scanner(System.in);
@@ -48,8 +48,6 @@ public class Functions extends Player{
         System.out.println("##################################################");
         System.out.println("# Written by Egor Shumeyko.  Last Rev 04/02/2019 #");
         System.out.println("##################################################");
-        //System.out.println("#   To exit the game type 'EXIT' at any prompt   #");
-        //System.out.println("##################################################");
         System.out.println("");
     }
 
@@ -69,6 +67,13 @@ public class Functions extends Player{
 
     public void buildDeck(){
         card_deck.buildNewDeck();
+        card_deck.deck_shuffle();
+        card_deck.deck_shuffle();
+        card_deck.deck_shuffle();
+    }
+
+    public void deal_cards(){
+
     }
 
     public void assignCards(){
@@ -196,6 +201,7 @@ public class Functions extends Player{
         System.out.println(community_card_4.card_value + " of " + community_card_4.card_suit);
         System.out.println(community_card_5.card_value + " of " + community_card_5.card_suit);*/
         System.out.println();
+        card_deck.printDeck();
         System.out.println();
         System.out.println();
 
