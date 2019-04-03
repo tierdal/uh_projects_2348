@@ -8,7 +8,7 @@ public class Functions extends Player{
     Player player_user = new Player();
     Bank player_bank = new Bank();
     Deck card_deck = new Deck();
-    Card player_card_1 = new Card();
+    /*Card player_card_1 = new Card();
     Card player_card_2 = new Card();
     Card bank_card_1 = new Card();
     Card bank_card_2 = new Card();
@@ -16,7 +16,7 @@ public class Functions extends Player{
     Card community_card_2 = new Card();
     Card community_card_3 = new Card();
     Card community_card_4 = new Card();
-    Card community_card_5 = new Card();
+    Card community_card_5 = new Card();*/
 
     //init vars
     Double bet_amount;
@@ -73,7 +73,7 @@ public class Functions extends Player{
 
     public void assignCards(){
         //assign Value
-        player_card_1.setValue(roll_card_value(13));
+        /*player_card_1.setValue(roll_card_value(13));
         player_card_1.setCard_value(assign_value(player_card_1.value));
         player_card_2.setValue(roll_card_value(13));
         player_card_2.setCard_value(assign_value(player_card_2.value));
@@ -90,11 +90,11 @@ public class Functions extends Player{
         bank_card_1.setSuit(roll_card_value(4));
         bank_card_1.setCard_suit(assign_suit(bank_card_1.suit));
         bank_card_2.setSuit(roll_card_value(4));
-        bank_card_2.setCard_suit(assign_suit(bank_card_2.suit));
+        bank_card_2.setCard_suit(assign_suit(bank_card_2.suit));*/
     }
 
     public void assignCommunity(){
-        community_card_1.setValue(roll_card_value(13));
+        /*community_card_1.setValue(roll_card_value(13));
         community_card_1.setCard_value(assign_value(community_card_1.value));
         community_card_2.setValue(roll_card_value(13));
         community_card_2.setCard_value(assign_value(community_card_2.value));
@@ -114,7 +114,7 @@ public class Functions extends Player{
         community_card_4.setSuit(roll_card_value(4));
         community_card_4.setCard_suit(assign_suit(community_card_4.suit));
         community_card_5.setSuit(roll_card_value(4));
-        community_card_5.setCard_suit(assign_suit(community_card_5.suit));
+        community_card_5.setCard_suit(assign_suit(community_card_5.suit));*/
     }
 
     private int roll_card_value(int roll_bound){
@@ -184,7 +184,7 @@ public class Functions extends Player{
         System.out.println("$" + bet_amount);
         System.out.println();
         System.out.println("--- CARDS -----------------------------------");
-        System.out.println(player_card_1.card_value + " of " + player_card_1.card_suit);
+        /*System.out.println(player_card_1.card_value + " of " + player_card_1.card_suit);
         System.out.println(player_card_2.card_value + " of " + player_card_2.card_suit);
         System.out.println(bank_card_1.card_value + " of " + bank_card_1.card_suit);
         System.out.println(bank_card_2.card_value + " of " + bank_card_2.card_suit);
@@ -194,7 +194,7 @@ public class Functions extends Player{
         System.out.println(community_card_2.card_value + " of " + community_card_2.card_suit);
         System.out.println(community_card_3.card_value + " of " + community_card_3.card_suit);
         System.out.println(community_card_4.card_value + " of " + community_card_4.card_suit);
-        System.out.println(community_card_5.card_value + " of " + community_card_5.card_suit);
+        System.out.println(community_card_5.card_value + " of " + community_card_5.card_suit);*/
         System.out.println();
         System.out.println();
         System.out.println();

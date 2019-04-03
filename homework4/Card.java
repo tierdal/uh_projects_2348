@@ -4,7 +4,9 @@ public class Card {
     public int suit;
     public String card_suit; //Spades, Hearts, Clubs, Diamonds
 
-    public Card(){
+    public Card(int value, int suit){
+        this.value = value;
+        this.suit = suit;
     }
 
     public void setCard_suit(String card_suit) {
