@@ -20,11 +20,12 @@ public class Bank {
         check_balance();
     }
 
-    public void check_balance(){
+    public boolean check_balance(){
         if (player_cash <= 0){
-            System.out.println("You have no more money left. Game Over!");
+            return false;
         } else {
             System.out.println("Your current balance is: $" + player_cash);
+            return true;
         }
     }
 

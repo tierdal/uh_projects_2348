@@ -1,4 +1,3 @@
-import java.util.Random;
 import java.util.Scanner;
 
 public class Functions extends Player{
@@ -32,6 +31,9 @@ public class Functions extends Player{
         String playerNameInput = sc.next();
         player_user.setPlayerName(playerNameInput);
 
+        //start
+        System.out.println("Starting New Game.");
+        player_bank.check_balance();
     }
 
     private void welcome_message(){
@@ -42,7 +44,7 @@ public class Functions extends Player{
         System.out.println("##################################################");
         System.out.println("# Written by Egor Shumeyko.  Last Rev 04/02/2019 #");
         System.out.println("##################################################");
-        System.out.println("");
+        System.out.println();
     }
 
     public void place_bet(){
@@ -64,9 +66,10 @@ public class Functions extends Player{
 
     public void buildDeck(){
         card_deck.buildNewDeck();
-        card_deck.deck_shuffle();
-        card_deck.deck_shuffle();
-        card_deck.deck_shuffle();
+
+        for(int shuffle_count = 0; shuffle_count < 5; shuffle_count++){
+            card_deck.deck_shuffle();
+        }
     }
 
     public void deal_cards(){
@@ -84,18 +87,35 @@ public class Functions extends Player{
         }
     }
 
-    private int roll_card_value(int roll_bound){
-        Boolean roll_0 = false;
-        int roll_number = 0;
-        Random rnd = new Random();
+    public void exit_message(){
+        System.out.println();
+        System.out.println("##################################################");
+        System.out.println("#        EXITING. Thank You for playing!         #");
+        System.out.println("##################################################");
+    }
 
-        while (!roll_0) {
-            roll_number = rnd.nextInt(roll_bound);
-            if (roll_number > 0) {
-                roll_0 = true;
+    public boolean exit_prompt(){
+        boolean input_validation = true;
+        System.out.println();
+        System.out.println("##################################################");
+        while(input_validation) {
+            if(player_bank.check_balance()) {
+                System.out.print("Round complete. Continue playing? (Y / N):");
+                String exit_prompt = sc.next();
+                if (exit_prompt.equals("Y") || exit_prompt.equals("y")) {
+                    return true;
+                } else if (exit_prompt.equals("N") || exit_prompt.equals("n")) {
+                    return false;
+                } else {
+                    System.out.println("Wrong input. Please try again...");
+                }
+            } else {
+                System.out.println("You have no more money left. Game Over!");
+                System.out.println("Exiting due to the lack of funds!");
+                return false;
             }
         }
-        return roll_number;
+        return false;
     }
 
     public void debug_vars(){
@@ -105,17 +125,17 @@ public class Functions extends Player{
         System.out.println("$" + player_bank.player_cash);
         System.out.println("$" + bet_amount);
         System.out.println();
-        System.out.println("--- CARDS ------------");
-        card_deck.printDeck();
-        System.out.println();
-        System.out.println("--- DEALER -----------");
-        player_dealer.print_cards();
-        System.out.println();
-        System.out.println("--- PLAYER -----------");
-        player_user.print_cards();
-        System.out.println();
-        System.out.println("--- COMMUNITY --------");
-        player_community.print_community();
+        //System.out.println("--- CARDS ------------");
+        //card_deck.printDeck();
+        //System.out.println();
+        //System.out.println("--- DEALER -----------");
+        //player_dealer.print_cards();
+        //System.out.println();
+        //System.out.println("--- PLAYER -----------");
+        //player_user.print_cards();
+        //System.out.println();
+        //System.out.println("--- COMMUNITY --------");
+        //player_community.print_community();
 
 
     }

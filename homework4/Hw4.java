@@ -4,26 +4,35 @@ import java.util.Random;
 import java.util.Arrays; //https://study.com/academy/lesson/how-to-sort-an-array-in-java.html
 
 public class Hw4 {
+    Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        //do stuff
-        Functions system_functions = new Functions();
+        boolean runtime = true;
 
+        //init
+        Functions system_functions = new Functions();
         system_functions.init_game();
 
-        system_functions.place_bet();
+        //main runtime
+        while(runtime){
 
-        system_functions.buildDeck();
+            system_functions.place_bet();
 
-        system_functions.deal_cards();
+            system_functions.buildDeck();
 
-        system_functions.deal_community();
+            system_functions.deal_cards();
 
-        system_functions.fund_transfer();
+            system_functions.deal_community();
 
-        system_functions.debug_vars();
+            system_functions.fund_transfer();
 
+            system_functions.debug_vars();
 
+            runtime = system_functions.exit_prompt();
+
+        }
+
+        system_functions.exit_message();
 
     }
 
