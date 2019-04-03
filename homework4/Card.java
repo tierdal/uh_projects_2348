@@ -4,6 +4,9 @@ public class Card {
     public int suit;
     public String card_suit; //Spades, Hearts, Clubs, Diamonds
 
+    public Card(){
+    }
+
     public void setCard_suit(String card_suit) {
         this.card_suit = card_suit;
     }

@@ -13,6 +13,8 @@ public class Hw4 {
 
         system_functions.place_bet();
 
+        system_functions.buildDeck();
+
         system_functions.assignCards();
 
         system_functions.assignCommunity();

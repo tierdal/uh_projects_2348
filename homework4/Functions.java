@@ -7,6 +7,7 @@ public class Functions extends Player{
     Player player_dealer = new Player();
     Player player_user = new Player();
     Bank player_bank = new Bank();
+    Deck card_deck = new Deck();
     Card player_card_1 = new Card();
     Card player_card_2 = new Card();
     Card bank_card_1 = new Card();
@@ -59,6 +60,15 @@ public class Functions extends Player{
             bet_amount = sc.nextDouble();
             can_bet = player_bank.check_bet(bet_amount);
         }
+    }
+
+    /*
+    CHANGE THE WAY THIS WORKS:
+    Must build deck in order to avoid duplicate cards.
+     */
+
+    public void buildDeck(){
+        card_deck.buildNewDeck();
     }
 
     public void assignCards(){

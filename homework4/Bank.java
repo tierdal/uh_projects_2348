@@ -1,6 +1,9 @@
 public class Bank {
     public double player_cash;
 
+    public Bank(){
+    }
+
     public void setPlayer_cash(double player_cash) {
         this.player_cash = player_cash;
     }
