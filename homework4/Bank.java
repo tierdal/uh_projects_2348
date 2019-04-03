@@ -9,13 +9,13 @@ public class Bank {
     }
 
     public void add_winnings(double bet_amount) {
-        System.out.println("Congratulations, you've won " + bet_amount + "!");
+        System.out.println("Congratulations, you've won $" + bet_amount + "!");
         player_cash = player_cash + bet_amount;
         check_balance();
     }
 
     public void subtract_winnings(double bet_amount) {
-        System.out.println("Better luck next time, you've lost " + bet_amount + "!");
+        System.out.println("Better luck next time, you've lost $" + bet_amount + "!");
         player_cash = player_cash - bet_amount;
         check_balance();
     }
@@ -24,7 +24,7 @@ public class Bank {
         if (player_cash <= 0){
             System.out.println("You have no more money left. Game Over!");
         } else {
-            System.out.println("Your current balance is: " + player_cash);
+            System.out.println("Your current balance is: $" + player_cash);
         }
     }
 
@@ -32,7 +32,7 @@ public class Bank {
         if (bet_amount <= player_cash){
             return true;
         } else {
-            System.out.println("Your bet exceeds your balance (" + player_cash + ")!");
+            System.out.println("Your bet exceeds your balance ($" + player_cash + ")!");
             return false;
         }
 

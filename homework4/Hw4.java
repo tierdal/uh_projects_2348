@@ -15,9 +15,13 @@ public class Hw4 {
 
         system_functions.buildDeck();
 
-        system_functions.assignCards();
+        //system_functions.is_winner = true;
 
-        system_functions.assignCommunity();
+        system_functions.fund_transfer();
+
+        //system_functions.assignCards();
+
+        //system_functions.assignCommunity();
 
         system_functions.debug_vars();
 

@@ -19,7 +19,8 @@ public class Functions extends Player{
     Card community_card_5 = new Card();*/
 
     //init vars
-    Double bet_amount; //move out to place_bet
+    public Double bet_amount; //move out to place_bet
+    public Boolean is_winner = false;
 
     //init Scanner
     Scanner sc = new Scanner(System.in);
@@ -60,6 +61,14 @@ public class Functions extends Player{
         }
     }
 
+    public void fund_transfer(){
+        if(is_winner){
+            player_bank.add_winnings(bet_amount);
+        } else {
+            player_bank.subtract_winnings(bet_amount);
+        }
+    }
+
     /*
     CHANGE THE WAY THIS WORKS:
     Must build deck in order to avoid duplicate cards.
@@ -76,9 +85,23 @@ public class Functions extends Player{
 
     }
 
-    public void assignCards(){
+    private int roll_card_value(int roll_bound){
+        Boolean roll_0 = false;
+        int roll_number = 0;
+        Random rnd = new Random();
+
+        while (!roll_0) {
+            roll_number = rnd.nextInt(roll_bound);
+            if (roll_number > 0) {
+                roll_0 = true;
+            }
+        }
+        return roll_number;
+    }
+
+    /*public void assignCards(){
         //assign Value
-        /*player_card_1.setValue(roll_card_value(13));
+        player_card_1.setValue(roll_card_value(13));
         player_card_1.setCard_value(assign_value(player_card_1.value));
         player_card_2.setValue(roll_card_value(13));
         player_card_2.setCard_value(assign_value(player_card_2.value));
@@ -95,7 +118,7 @@ public class Functions extends Player{
         bank_card_1.setSuit(roll_card_value(4));
         bank_card_1.setCard_suit(assign_suit(bank_card_1.suit));
         bank_card_2.setSuit(roll_card_value(4));
-        bank_card_2.setCard_suit(assign_suit(bank_card_2.suit));*/
+        bank_card_2.setCard_suit(assign_suit(bank_card_2.suit));
     }
 
     public void assignCommunity(){
@@ -119,23 +142,10 @@ public class Functions extends Player{
         community_card_4.setSuit(roll_card_value(4));
         community_card_4.setCard_suit(assign_suit(community_card_4.suit));
         community_card_5.setSuit(roll_card_value(4));
-        community_card_5.setCard_suit(assign_suit(community_card_5.suit));*/
-    }
+        community_card_5.setCard_suit(assign_suit(community_card_5.suit));
+    }*/
 
-    private int roll_card_value(int roll_bound){
-        Boolean roll_0 = false;
-        int roll_number = 0;
-        Random rnd = new Random();
-
-        while (!roll_0) {
-            roll_number = rnd.nextInt(roll_bound);
-            if (roll_number > 0) {
-                roll_0 = true;
-            }
-        }
-        return roll_number;
-    }
-    private String assign_suit(int suit_value){
+    /*private String assign_suit(int suit_value){
         switch(suit_value) {
             case 1:
                 return "Spades";
@@ -179,7 +189,7 @@ public class Functions extends Player{
                 return "King";
         }
         return null;
-    }
+    }*/
 
     public void debug_vars(){
         System.out.println();
