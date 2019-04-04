@@ -24,6 +24,10 @@ public class Hw4 {
 
             system_functions.deal_community();
 
+            system_functions.build_evaluators();
+
+            system_functions.evaluate_results();
+
             //transfer money from bet to bank
             system_functions.fund_transfer();
 

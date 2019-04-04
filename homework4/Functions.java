@@ -8,6 +8,8 @@ public class Functions extends Player{
     Player player_community = new Player();
     Bank player_bank = new Bank();
     Deck card_deck = new Deck();
+    Evaluator evaluate_player_hand = new Evaluator();
+    Evaluator evaluate_dealer_hand = new Evaluator();
 
     //init vars
     public Double bet_amount; //move out to place_bet
@@ -87,6 +89,25 @@ public class Functions extends Player{
         }
     }
 
+    public void build_evaluators(){
+        for (int card_number=0;card_number<2;card_number++){
+            evaluate_player_hand.setEvaluator_hand(player_user.getPlayer_hand(card_number), card_number);
+        }
+        for (int card_number=0;card_number<5;card_number++){
+            evaluate_player_hand.setEvaluator_hand(player_community.getCommunity_hand(card_number), card_number+2);
+        }
+        for (int card_number=0;card_number<2;card_number++){
+            evaluate_dealer_hand.setEvaluator_hand(player_dealer.getPlayer_hand(card_number), card_number);
+        }
+        for (int card_number=0;card_number<5;card_number++){
+            evaluate_dealer_hand.setEvaluator_hand(player_community.getCommunity_hand(card_number), card_number+2);
+        }
+    }
+
+    public void evaluate_results(){
+        evaluate_player_hand.evaluate_hand();
+    }
+
     public void exit_message(){
         System.out.println();
         System.out.println("##################################################");
@@ -128,14 +149,20 @@ public class Functions extends Player{
         //System.out.println("--- CARDS ------------");
         //card_deck.printDeck();
         //System.out.println();
-        //System.out.println("--- DEALER -----------");
-        //player_dealer.print_cards();
-        //System.out.println();
-        //System.out.println("--- PLAYER -----------");
-        //player_user.print_cards();
-        //System.out.println();
-        //System.out.println("--- COMMUNITY --------");
-        //player_community.print_community();
+        System.out.println("--- DEALER -----------");
+        player_dealer.print_cards();
+        System.out.println();
+        System.out.println("--- PLAYER -----------");
+        player_user.print_cards();
+        System.out.println();
+        System.out.println("--- COMMUNITY --------");
+        player_community.print_community();
+        System.out.println();
+        System.out.println("--- PLAYER EVALUATOR -");
+        evaluate_player_hand.print_evaluator();
+        System.out.println();
+        System.out.println("--- BANK EVALUATOR ---");
+        evaluate_dealer_hand.print_evaluator();
 
 
     }

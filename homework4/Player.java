@@ -14,9 +14,13 @@ public class Player {
         this.community_hand[card_number] = community_hand;
     }
 
-    /*public Card getPlayer_hand(int card_number) {
+    public Card getPlayer_hand(int card_number) {
         return player_hand[card_number];
-    }*/
+    }
+
+    public Card getCommunity_hand(int card_number) {
+        return community_hand[card_number];
+    }
 
     public void print_cards(){
         for (int card_number=0;card_number<2;card_number++){
