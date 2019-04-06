@@ -163,6 +163,12 @@ public class Functions extends Player{
         System.out.println();
         System.out.println("--- BANK EVALUATOR ---");
         evaluate_dealer_hand.print_evaluator();
+        System.out.println();
+        System.out.println("--- PLAYER WIN -------");
+        System.out.println(evaluate_player_hand.evaluate_result);
+        System.out.println();
+        System.out.println("--- BANK WIN ---------");
+        System.out.println(evaluate_dealer_hand.evaluate_result);
 
 
     }

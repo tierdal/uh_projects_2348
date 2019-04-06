@@ -44,7 +44,7 @@ public class Evaluator {
             suit_evaluator[counter] = 0;
         }
 
-        for (int counter=0;counter<13;counter++){
+        for (int counter=0;counter<7;counter++){
             value_evaluator[evaluator_hand[counter].get_value()]++;
             suit_evaluator[evaluator_hand[counter].get_suit()]++;
         }
