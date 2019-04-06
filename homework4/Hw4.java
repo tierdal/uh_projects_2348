@@ -1,10 +1,4 @@
-import java.util.Scanner;
-import java.util.ArrayList; //https://stackoverflow.com/questions/9342859/i-need-to-find-a-integer-data-in-arraylist
-import java.util.Random;
-import java.util.Arrays; //https://study.com/academy/lesson/how-to-sort-an-array-in-java.html
-
 public class Hw4 {
-    Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
         boolean runtime = true;
@@ -14,7 +8,19 @@ public class Hw4 {
         system_functions.init_game();
 
         //main runtime
+
         while(runtime){
+
+            //reset vars at the beginning of each round
+            system_functions.card_counter = 0;
+            system_functions.evaluate_player_hand.evaluate_result = 0;
+            system_functions.evaluate_player_hand.win_rank = 0;
+            system_functions.evaluate_dealer_hand.evaluate_result = 0;
+            system_functions.evaluate_dealer_hand.win_rank = 0;
+            system_functions.is_dealer_winner = false;
+            system_functions.is_player_winner = false;
+            system_functions.is_winner = false;
+            system_functions.is_draw = false;
 
             system_functions.place_bet();
 
@@ -28,18 +34,18 @@ public class Hw4 {
 
             system_functions.evaluate_results();
 
+            //print vars for debug
+            system_functions.print_info();
+
             //transfer money from bet to bank
             system_functions.fund_transfer();
-
-            //print vars for debug
-            system_functions.debug_vars();
 
             //ask whether to keep playing (if balance is 0 it will exit)
             runtime = system_functions.exit_prompt();
 
         }
 
-        //print exit message and end
+        //print exit message and end terminate
         system_functions.exit_message();
 
     }

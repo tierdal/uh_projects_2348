@@ -23,15 +23,23 @@ public class Player {
     }
 
     public void print_cards(){
+        System.out.print("|");
         for (int card_number=0;card_number<2;card_number++){
-            System.out.println(player_hand[card_number].returnCard());
+            System.out.print(" ");
+            System.out.print(player_hand[card_number].returnCard());
+            System.out.print(" |");
         }
+        System.out.println();
     }
 
     public void print_community(){
+        System.out.print("|");
         for (int card_number=0;card_number<5;card_number++){
-            System.out.println(community_hand[card_number].returnCard());
+            System.out.print(" ");
+            System.out.print(community_hand[card_number].returnCard());
+            System.out.print(" |");
         }
+        System.out.println();
     }
 
     public void setPlayerName(String playerName) {

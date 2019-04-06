@@ -8,16 +8,16 @@ public class Bank {
         this.player_cash = player_cash;
     }
 
-    public void add_winnings(double bet_amount) {
-        System.out.println("Congratulations, you've won $" + bet_amount + "!");
+    public void add_winnings(double bet_amount, boolean is_draw) {
+        if (!is_draw) {System.out.println("Congratulations, you've won $" + bet_amount + "!");}
         player_cash = player_cash + bet_amount;
-        check_balance();
+        //check_balance();
     }
 
-    public void subtract_winnings(double bet_amount) {
-        System.out.println("Better luck next time, you've lost $" + bet_amount + "!");
+    public void subtract_winnings(double bet_amount, boolean is_draw) {
+        if (!is_draw) {System.out.println("Better luck next time, you've lost $" + bet_amount + "!");}
         player_cash = player_cash - bet_amount;
-        check_balance();
+        //check_balance();
     }
 
     public boolean check_balance(){

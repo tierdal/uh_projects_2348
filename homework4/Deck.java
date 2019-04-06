@@ -5,6 +5,7 @@ public class Deck {
     public Card[] deck_cards = new Card[52];
 
     public Deck(){
+        buildNewDeck();
     }
 
     public void buildNewDeck(){
@@ -19,7 +20,6 @@ public class Deck {
     public void deck_shuffle(){ //https://www.programcreek.com/2012/02/java-method-to-shuffle-an-int-array-with-random-order/
         int deck_size = deck_cards.length;
         Random rnd = new Random();
-        //random.nextInt();
         for (int deck_counter=0;deck_counter<deck_size;deck_counter++){
             int random_index = deck_counter + rnd.nextInt(deck_size - deck_counter);
             Card temp = deck_cards[deck_counter];
@@ -32,9 +32,9 @@ public class Deck {
         return deck_cards[card_number];
     }
 
-    public void printDeck(){
+/*    public void printDeck(){
         for(int deck_counter=0; deck_counter<deck_cards.length;deck_counter++){
             System.out.println(deck_counter+1 + ": " + deck_cards[deck_counter].returnCard());
         }
-    }
+    }*/
 }

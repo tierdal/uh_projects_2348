@@ -2,19 +2,25 @@ import java.util.Scanner;
 
 public class Functions extends Player{
 
-    //init Classes
+    //init vars
+    public double bet_amount; //move out to place_bet
+    public boolean is_winner;
+    public boolean is_dealer_winner = false;
+    public boolean is_player_winner = false;
+    public boolean is_draw = false;
+    public int card_counter = 0;
+    public String [] win_result = {"No Hand","Royal Flush","Straight Flush","Four Of A Kind","Full House","Flush","Straight","Three Of A Kind","Two Pair","One Pair"};
+    public String return_player_result;
+    public String return_dealer_result;
+
+    Bank player_bank = new Bank();
     Player player_dealer = new Player();
     Player player_user = new Player();
     Player player_community = new Player();
-    Bank player_bank = new Bank();
+    //init Classes
     Deck card_deck = new Deck();
     Evaluator evaluate_player_hand = new Evaluator();
     Evaluator evaluate_dealer_hand = new Evaluator();
-
-    //init vars
-    public Double bet_amount; //move out to place_bet
-    public Boolean is_winner = false;
-    public int card_counter = 0;
 
     //init Scanner
     Scanner sc = new Scanner(System.in);
@@ -44,7 +50,7 @@ public class Functions extends Player{
         System.out.println("#            Welcome to Texas Hold'em            #");
         System.out.println("#                                                #");
         System.out.println("##################################################");
-        System.out.println("# Written by Egor Shumeyko.  Last Rev 04/02/2019 #");
+        System.out.println("# Written by Egor Shumeyko.  Last Rev 04/06/2019 #");
         System.out.println("##################################################");
         System.out.println();
     }
@@ -60,9 +66,9 @@ public class Functions extends Player{
 
     public void fund_transfer(){
         if(is_winner){
-            player_bank.add_winnings(bet_amount * 2);
+            player_bank.add_winnings(bet_amount * 2, is_draw);
         } else {
-            player_bank.subtract_winnings(bet_amount);
+            player_bank.subtract_winnings(bet_amount, is_draw);
         }
     }
 
@@ -105,7 +111,24 @@ public class Functions extends Player{
     }
 
     public void evaluate_results(){
-        evaluate_player_hand.evaluate_hand();
+        return_player_result = win_result[evaluate_player_hand.evaluate_hand()];
+        return_dealer_result = win_result[evaluate_dealer_hand.evaluate_hand()];
+
+
+        if (evaluate_player_hand.win_rank == evaluate_dealer_hand.win_rank){
+            //System.out.println("It's a draw!");
+            player_bank.add_winnings(bet_amount, is_draw);
+            is_winner = false;
+            is_draw = true;
+        } else if (evaluate_player_hand.win_rank > 0 && evaluate_player_hand.win_rank < evaluate_dealer_hand.win_rank) {
+            //System.out.println(player_user.playerName + " Wins!");
+            is_winner = true;
+            is_player_winner = true;
+        } else {
+            //System.out.println("Dealer Wins!");
+            is_winner = false;
+            is_dealer_winner = true;
+        }
     }
 
     public void exit_message(){
@@ -139,16 +162,14 @@ public class Functions extends Player{
         return false;
     }
 
-    public void debug_vars(){
-        System.out.println();
-        System.out.println(player_user.playerName);
-        System.out.println(player_dealer.playerName);
-        System.out.println("$" + player_bank.player_cash);
-        System.out.println("$" + bet_amount);
-        System.out.println();
+    public void print_info(){
+        //System.out.println();
+        //System.out.println(player_user.playerName);
+        //System.out.println(player_dealer.playerName);
+        //System.out.println();
         //System.out.println("--- CARDS ------------");
         //card_deck.printDeck();
-        //System.out.println();
+        System.out.println();
         System.out.println("--- DEALER -----------");
         player_dealer.print_cards();
         System.out.println();
@@ -156,19 +177,30 @@ public class Functions extends Player{
         player_user.print_cards();
         System.out.println();
         System.out.println("--- COMMUNITY --------");
-        player_community.print_community();
+        player_community.print_community();/*
         System.out.println();
         System.out.println("--- PLAYER EVALUATOR -");
         evaluate_player_hand.print_evaluator();
         System.out.println();
         System.out.println("--- BANK EVALUATOR ---");
-        evaluate_dealer_hand.print_evaluator();
+        evaluate_dealer_hand.print_evaluator();*/
         System.out.println();
-        System.out.println("--- PLAYER WIN -------");
-        System.out.println(evaluate_player_hand.evaluate_result);
+        System.out.println("--- PLAYER HAND ------");
+        System.out.print(return_player_result);
+        if (is_player_winner) {System.out.println(" <= WINNER");}
         System.out.println();
-        System.out.println("--- BANK WIN ---------");
-        System.out.println(evaluate_dealer_hand.evaluate_result);
+        System.out.println("--- BANK HAND --------");
+        System.out.print(return_dealer_result);
+        if (is_dealer_winner) {System.out.println(" <= WINNER");}
+        System.out.println();
+        System.out.println();
+        if (!is_player_winner && !is_dealer_winner) {
+            System.out.println("IT'S A DRAW");
+        }
+        System.out.println();
+
+        //System.out.println("$" + player_bank.player_cash);
+        //System.out.println("$" + bet_amount);
 
 
     }
