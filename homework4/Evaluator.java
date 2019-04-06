@@ -11,18 +11,18 @@ public class Evaluator {
         this.evaluator_hand[card_number] = player_hand;
     }
 
-    public void print_evaluator(){
+    /*public void print_evaluator(){
         for (int card_number=0;card_number<7;card_number++){
             System.out.println(evaluator_hand[card_number].returnCard());
         }
-    }
+    }*/
 
-    protected void sort_value(){
+    private void sort_value(){
         Arrays.sort(evaluator_hand, new value_comparator());
     }
 
     //have to define custom sorting attributes https://www.geeksforgeeks.org/comparator-interface-java/
-    protected void sort_both(){
+    private void sort_both(){
         Arrays.sort(evaluator_hand, new value_comparator());
         Arrays.sort(evaluator_hand, new suit_comparator());
     }

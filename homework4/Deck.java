@@ -31,10 +31,4 @@ public class Deck {
     public Card getCard(int card_number){
         return deck_cards[card_number];
     }
-
-/*    public void printDeck(){
-        for(int deck_counter=0; deck_counter<deck_cards.length;deck_counter++){
-            System.out.println(deck_counter+1 + ": " + deck_cards[deck_counter].returnCard());
-        }
-    }*/
 }

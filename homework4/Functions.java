@@ -116,16 +116,13 @@ public class Functions extends Player{
 
 
         if (evaluate_player_hand.win_rank == evaluate_dealer_hand.win_rank){
-            //System.out.println("It's a draw!");
             player_bank.add_winnings(bet_amount, is_draw);
             is_winner = false;
             is_draw = true;
         } else if (evaluate_player_hand.win_rank > 0 && evaluate_player_hand.win_rank < evaluate_dealer_hand.win_rank) {
-            //System.out.println(player_user.playerName + " Wins!");
             is_winner = true;
             is_player_winner = true;
         } else {
-            //System.out.println("Dealer Wins!");
             is_winner = false;
             is_dealer_winner = true;
         }
@@ -163,12 +160,6 @@ public class Functions extends Player{
     }
 
     public void print_info(){
-        //System.out.println();
-        //System.out.println(player_user.playerName);
-        //System.out.println(player_dealer.playerName);
-        //System.out.println();
-        //System.out.println("--- CARDS ------------");
-        //card_deck.printDeck();
         System.out.println();
         System.out.println("--- DEALER -----------");
         player_dealer.print_cards();
@@ -177,13 +168,7 @@ public class Functions extends Player{
         player_user.print_cards();
         System.out.println();
         System.out.println("--- COMMUNITY --------");
-        player_community.print_community();/*
-        System.out.println();
-        System.out.println("--- PLAYER EVALUATOR -");
-        evaluate_player_hand.print_evaluator();
-        System.out.println();
-        System.out.println("--- BANK EVALUATOR ---");
-        evaluate_dealer_hand.print_evaluator();*/
+        player_community.print_community();
         System.out.println();
         System.out.println("--- PLAYER HAND ------");
         System.out.print(return_player_result);
@@ -198,9 +183,6 @@ public class Functions extends Player{
             System.out.println("IT'S A DRAW");
         }
         System.out.println();
-
-        //System.out.println("$" + player_bank.player_cash);
-        //System.out.println("$" + bet_amount);
 
 
     }
