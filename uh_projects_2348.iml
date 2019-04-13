@@ -10,7 +10,6 @@
       <sourceFolder url="file://$MODULE_DIR$/homework3" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/homework4" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/final_project" isTestSource="false" />
-      <!--https://codereview.stackexchange.com/questions/1382/texas-holdem-in-java-->
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
