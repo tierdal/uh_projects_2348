@@ -10,8 +10,12 @@
       <sourceFolder url="file://$MODULE_DIR$/homework3" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/homework4" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/final_project" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/.idea" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" exported="" name="javafx_uh_projects_2348" level="application" />
+    <orderEntry type="library" name="lib" level="project" />
   </component>
 </module>
