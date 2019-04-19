@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane prefHeight="275.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="plift.Controller">
+   <children>
+      <HBox id="splash-image" prefHeight="275.0" prefWidth="300.0" style="-fx-background-size: 300px 275px; -fx-background-position: center center; -fx-background-repeat: no-repeat;" stylesheets="@style.css">
+      </HBox>
+   </children>
+</AnchorPane>
