@@ -1,4 +1,4 @@
-package test;
+package plift;
 
 public class Controller {
 }
