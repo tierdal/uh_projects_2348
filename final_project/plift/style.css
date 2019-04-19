@@ -1,4 +1,3 @@
-#splash-image {
+#splash-background{
     -fx-background-image : url("splash.jpg")
-    /* others properties */
 }
