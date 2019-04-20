@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
@@ -11,72 +12,158 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-
 <?import javafx.collections.FXCollections?>
 <?import java.lang.String?>
-<AnchorPane prefHeight="500.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="plift.Controller_mainapp">
+
+<AnchorPane prefHeight="575.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="plift.Controller_mainapp">
    <children>
-      <Separator layoutY="45.0" minWidth="1200.0" prefHeight="14.0" prefWidth="1200.0" />
-      <ToolBar prefHeight="45.0">
-         <items>
-            <ComboBox fx:id="combo_mainapp_name" prefHeight="31.0" prefWidth="182.0" promptText="Name" />
-            <Button fx:id="btn_mainapp_adduser" mnemonicParsing="false" onAction="#btn_mainapp_adduser_action" text="Add" />
-            <Button mnemonicParsing="false" text="Edit" />
-            <Button mnemonicParsing="false" text="Remove" />
-            <HBox minWidth="1121.0" prefHeight="31.0" prefWidth="1121.0">
+      <VBox prefHeight="590.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox prefHeight="50.0">
                <children>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <HBox prefHeight="100.0" prefWidth="200.0">
+                  <ToolBar>
+                     <items>
+                        <HBox minWidth="1121.0" prefHeight="35.0" prefWidth="1189.0">
                            <children>
-                              <Label prefHeight="31.0" prefWidth="68.0" text="Age" />
-                           </children></HBox>
-                        <VBox prefHeight="31.0" prefWidth="198.0" />
-                     </children></HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <HBox prefHeight="100.0" prefWidth="200.0">
-                           <children>
-                              <Label prefHeight="31.0" prefWidth="48.0" text="Weight" />
+                              <HBox prefHeight="100.0" prefWidth="450.0">
+                                 <children>
+                                    <ComboBox fx:id="combo_mainapp_name" onAction="#combo_mainapp_name_update" prefHeight="50.0" prefWidth="250.0" promptText="Name" />
+                                    <Button fx:id="btn_mainapp_adduser" mnemonicParsing="false" onAction="#btn_mainapp_adduser_action" prefHeight="50.0" prefWidth="75.0" text="Add" />
+                                    <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="75.0" text="Edit" />
+                                    <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="75.0" text="Remove" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0" />
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Label alignment="CENTER_RIGHT" prefHeight="35.0" prefWidth="200.0" text="Age: " />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Label fx:id="label_mainapp_age" prefHeight="35.0" prefWidth="200.0" text="##" />
+                                       </children></HBox>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Label alignment="CENTER_RIGHT" prefHeight="35.0" prefWidth="200.0" text="Weight: " />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Label fx:id="label_mainapp_weight" prefHeight="35.0" prefWidth="200.0" text="##" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Label alignment="CENTER_RIGHT" prefHeight="35.0" prefWidth="200.0" text="Gender: " />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Label fx:id="label_mainapp_gender" prefHeight="35.0" prefWidth="200.0" text="##" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
                            </children>
                         </HBox>
-                        <VBox prefHeight="200.0" prefWidth="100.0" />
-                     </children></HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <HBox prefHeight="100.0" prefWidth="200.0">
-                           <children>
-                              <Label prefHeight="34.0" prefWidth="35.0" text="Sex" />
-                           </children>
-                        </HBox>
-                     </children></HBox>
+                     </items>
+                  </ToolBar>
                </children>
             </HBox>
-         </items>
-      </ToolBar>
-      <TableView layoutX="14.0" layoutY="111.0" minHeight="-Infinity" prefHeight="479.0" prefWidth="322.0">
-        <columns>
-          <TableColumn prefWidth="105.0" text="Type of Lift" />
-          <TableColumn prefWidth="69.0" text="Attempt" />
-            <TableColumn prefWidth="75.0" text="Weight" />
-            <TableColumn prefWidth="75.0" text="Success?" />
-        </columns>
-      </TableView>
-      <ToolBar layoutY="59.0" prefHeight="45.0" prefWidth="1200.0">
-         <items>
-            <ComboBox fx:id="lifttype" prefWidth="150.0" promptText="Lift Type" visibleRowCount="3">
-               <items>
-                  <FXCollections fx:factory="observableArrayList">
-                     <String fx:value="Bench Press" />
-                     <String fx:value="Squat" />
-                     <String fx:value="Deadlift" />
-                  </FXCollections>
-               </items>
-            </ComboBox>
-            <Label text="Desired Lift Weight" />
-            <TextField fx:id="desired_weight" onAction="#setDesired_weight" prefHeight="31.0" prefWidth="145.0" />
-          <Button mnemonicParsing="false" onAction="#setDesired_weight" text="Submit" />
-         </items>
-      </ToolBar>
+            <Separator minWidth="1200.0" prefHeight="10.0" prefWidth="1200.0" />
+            <HBox>
+               <children>
+                  <ToolBar prefHeight="41.0">
+                     <items>
+                        <VBox prefWidth="1189.0">
+                           <children>
+                              <HBox prefWidth="50.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="35.0" prefWidth="1200.0" text="RECORD A NEW LIFT ATTEMPT" />
+                                 </children>
+                              </HBox>
+                              <HBox minWidth="1000.0">
+                                 <children>
+                                    <HBox prefWidth="210.0">
+                                       <children>
+                                          <ComboBox fx:id="lifttype" prefHeight="35.0" prefWidth="200.0" promptText="Lift Type" visibleRowCount="3">
+                                             <items>
+                                                <FXCollections fx:factory="observableArrayList">
+                                                   <String fx:value="Bench Press" />
+                                                   <String fx:value="Squat" />
+                                                   <String fx:value="Deadlift" />
+                                                </FXCollections>
+                                             </items>
+                                          </ComboBox>
+                                          <HBox prefWidth="10.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefWidth="135.0">
+                                       <children>
+                                          <Label alignment="CENTER_RIGHT" prefHeight="35.0" prefWidth="125.0" text="Desired Lift Weight:" />
+                                          <HBox prefWidth="10.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefWidth="150.0">
+                                       <children>
+                                          <TextField fx:id="desired_weight" onAction="#setDesired_weight" prefHeight="35.0" prefWidth="140.0" />
+                                          <HBox prefWidth="10.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox layoutX="260.0" layoutY="10.0" prefWidth="160.0">
+                                       <children>
+                                          <ComboBox fx:id="lifttype1" prefHeight="35.0" prefWidth="150.0" promptText="Attempt Number" />
+                                          <HBox prefWidth="10.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefWidth="100.0">
+                                       <children>
+                                          <CheckBox mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" text="Success?" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="35.0" prefWidth="234.0" />
+                                    <HBox prefWidth="200.0">
+                                       <children>
+                                        <Button mnemonicParsing="false" onAction="#setDesired_weight" prefHeight="35.0" prefWidth="200.0" text="Submit" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </items>
+                  </ToolBar>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <TableView minHeight="-Infinity" prefHeight="435.0" prefWidth="800.0">
+                    <columns>
+                        <TableColumn prefWidth="105.0" text="Participant" />
+                        <TableColumn prefWidth="105.0" text="Age" />
+                        <TableColumn prefWidth="105.0" text="Gender" />
+                        <TableColumn prefWidth="105.0" text="Weight Class" />
+                        <TableColumn prefWidth="105.0" text="Type of Lift" />
+                        <TableColumn prefWidth="69.0" text="Attempt" />
+                        <TableColumn prefWidth="75.0" text="Weight" />
+                        <TableColumn prefWidth="75.0" text="Success?" />
+                    </columns>
+                  </TableView>
+                  <HBox prefHeight="100.0" prefWidth="400.0" />
+               </children>
+            </HBox>
+         </children>
+     </VBox>
    </children>
 </AnchorPane>
