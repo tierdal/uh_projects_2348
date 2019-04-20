@@ -21,12 +21,16 @@ import java.io.IOException;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Label;
 import java.sql.*;
 
 public class Controller_mainapp {
 
     @FXML public ComboBox<String> combo_mainapp_name;
     @FXML public Button btn_mainapp_adduser;
+    @FXML public Label label_mainapp_age;
+    @FXML public Label label_mainapp_weight;
+    @FXML public Label label_mainapp_gender;
 
 
     private Connection connect_db() {
@@ -41,6 +45,38 @@ public class Controller_mainapp {
             System.out.println(e.getMessage());
         }
         return conn;
+    }
+
+    @FXML public void combo_mainapp_name_update(){
+        //update user info once combo box changes
+
+        Connection conn = this.connect_db();
+        ObservableList<String> combo_options = FXCollections.observableArrayList();
+
+        try {
+            ResultSet result_set;
+            String return_age, return_weight, return_gender;
+
+            String sql_age = "SELECT age FROM users WHERE name='" + combo_mainapp_name.getValue() + "'";
+            String sql_weight = "SELECT weight FROM users WHERE name='" + combo_mainapp_name.getValue() + "'";
+            String sql_gender = "SELECT gender FROM users WHERE name='" + combo_mainapp_name.getValue() + "'";
+            //ResultSet result_set = conn.createStatement().executeQuery(sql);
+            result_set = conn.createStatement().executeQuery(sql_age);
+            label_mainapp_age.setText(result_set.getString("age"));
+            result_set = conn.createStatement().executeQuery(sql_weight);
+            label_mainapp_weight.setText(result_set.getString("weight"));
+            result_set = conn.createStatement().executeQuery(sql_gender);
+            label_mainapp_gender.setText(result_set.getString("gender"));
+
+            //while (result_set.next()) {
+            //    combo_options.add(result_set.getString("name"));
+            //}
+            //combo_mainapp_name.setItems(combo_options);
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Error on Building Data");
+        }
     }
 
     @FXML
