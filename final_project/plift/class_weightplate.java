@@ -1,5 +1,6 @@
 package plift;
 
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 
 public class class_weightplate {
@@ -67,9 +68,7 @@ public class class_weightplate {
             def_weight = def_weight - 0.25;
             count0_25++;
         }
-
-
-
+        FXCollections.observableArrayList("50KG Weights: " + count50,"25KG Weights: " + count25);
     }
 
 

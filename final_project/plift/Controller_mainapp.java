@@ -86,7 +86,6 @@ public class Controller_mainapp {
             System.out.println("You've entered " + w);
             double attemptweight = Double.parseDouble(w);
             setweight.SetBarWeights(attemptweight);
-
         }
     }
 }
