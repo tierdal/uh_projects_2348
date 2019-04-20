@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -53,7 +54,7 @@ public class Controller {
 
     @FXML public void btn_adduser_submit_action(){
         Stage stage = (Stage) btn_adduser_submit.getScene().getWindow();
-        //submit_user();
+        submit_user();
         stage.hide();
     }
 
@@ -102,5 +103,17 @@ public class Controller {
         adduserStage.setScene(new Scene(root, 300, 200));
         adduserStage.show();
     }
+    @FXML public TextField desired_weight;
+
+    @FXML public void setDesired_weight(){
+        String w = desired_weight.getText();
+        double attemptweight = Double.valueOf(w);
+        plift_weightplate weight = new plift_weightplate();
+        weight.setAttempt_weight(attemptweight);
+    }
+
+
+
+
 
 }
