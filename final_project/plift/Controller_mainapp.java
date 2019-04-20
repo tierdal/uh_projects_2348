@@ -79,13 +79,14 @@ public class Controller_mainapp {
 
     @FXML public void setDesired_weight(){
         String w = desired_weight.getText();
+        class_weightplate setweight = new class_weightplate();
         if (w.equals("")) {
             System.out.println("Please enter something!");
         } else {
             System.out.println("You've entered " + w);
             double attemptweight = Double.parseDouble(w);
-            class_weightplate setweight = new class_weightplate();
             setweight.SetBarWeights(attemptweight);
+
         }
     }
 }

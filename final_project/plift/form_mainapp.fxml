@@ -12,6 +12,8 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
 <AnchorPane prefHeight="500.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="plift.Controller_mainapp">
    <children>
       <Separator layoutY="45.0" minWidth="1200.0" prefHeight="14.0" prefWidth="1200.0" />
@@ -62,7 +64,15 @@
       </TableView>
       <ToolBar layoutY="59.0" prefHeight="45.0" prefWidth="1200.0">
          <items>
-            <ComboBox fx:id="lifttype" prefWidth="150.0" promptText="Lift Type" />
+            <ComboBox fx:id="lifttype" prefWidth="150.0" promptText="Lift Type" visibleRowCount="3">
+               <items>
+                  <FXCollections fx:factory="observableArrayList">
+                     <String fx:value="Bench Press" />
+                     <String fx:value="Squat" />
+                     <String fx:value="Deadlift" />
+                  </FXCollections>
+               </items>
+            </ComboBox>
             <Label text="Desired Lift Weight" />
             <TextField fx:id="desired_weight" onAction="#setDesired_weight" prefHeight="31.0" prefWidth="145.0" />
           <Button mnemonicParsing="false" onAction="#setDesired_weight" text="Submit" />

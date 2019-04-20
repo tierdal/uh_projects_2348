@@ -1,5 +1,7 @@
 package plift;
 
+import javafx.fxml.FXML;
+
 public class class_weightplate {
     public void SetBarWeights(double attempt_weight){
         double def_weight = attempt_weight - 20;
@@ -11,7 +13,7 @@ public class class_weightplate {
         double count10 = 0;
         double count5 = 0;
         double count2_5 = 0;
-        double count1_5 = 0;
+        double count1_25 = 0;
         double count0_5 = 0;
         double count0_25 = 0;
 
@@ -24,6 +26,11 @@ public class class_weightplate {
         while(def_weight >= 25){
             def_weight = def_weight - 25;
             count25++;
+        }
+
+        while(def_weight >= 20){
+            def_weight = def_weight - 20;
+            count20++;
         }
 
         while(def_weight >= 15){
@@ -40,6 +47,28 @@ public class class_weightplate {
             def_weight = def_weight - 5;
             count5++;
         }
+
+        while(def_weight >= 2.5){
+            def_weight = def_weight - 2.5;
+            count2_5++;
+        }
+
+        while(def_weight >= 1.25){
+            def_weight = def_weight - 1.25;
+            count1_25++;
+        }
+
+        while (def_weight >= 0.5){
+            def_weight = def_weight - 0.5;
+            count0_5++;
+        }
+
+        while (def_weight >= 0.25){
+            def_weight = def_weight - 0.25;
+            count0_25++;
+        }
+
+
 
     }
 
