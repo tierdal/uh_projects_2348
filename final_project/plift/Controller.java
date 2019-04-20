@@ -53,7 +53,7 @@ public class Controller {
 
     @FXML public void btn_adduser_submit_action(){
         Stage stage = (Stage) btn_adduser_submit.getScene().getWindow();
-        submit_user();
+        //submit_user();
         stage.hide();
     }
 
@@ -71,7 +71,7 @@ public class Controller {
         return conn;
     }
 
-    @FXML public void submit_user(){
+@FXML public void submit_user(){
         Statement ps_conn;
 
         String field_adduser_name_value = field_adduser_name.getText();
