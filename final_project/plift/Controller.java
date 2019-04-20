@@ -54,7 +54,7 @@ public class Controller {
 
     @FXML public void btn_adduser_submit_action(){
         Stage stage = (Stage) btn_adduser_submit.getScene().getWindow();
-        submit_user();
+        //submit_user();
         stage.hide();
     }
 
@@ -70,22 +70,6 @@ public class Controller {
         return conn;
     }
 
-    @FXML public void submit_user(){
-        String field_adduser_name_value = field_adduser_name.getText();
-        int field_adduser_age_value = Integer.parseInt(field_adduser_age.getText());
-        String field_adduser_gender_value = field_adduser_gender.getText();
-        double field_adduser_weight_value = Double.parseDouble(field_adduser_weight.getText());
-        String sql = "INSERT INTO users(name,age,gender,weight) VALUES(?,?,?,?)";
-        try (Connection conn = this.connect_db();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, field_adduser_name_value);
-            pstmt.setInt(2, field_adduser_age_value);;
-            pstmt.setString(3, field_adduser_gender_value);;
-            pstmt.setDouble(4, field_adduser_weight_value);
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
+
 
 }
