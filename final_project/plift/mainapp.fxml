@@ -18,7 +18,7 @@
       <ToolBar prefHeight="45.0">
          <items>
             <ComboBox id="name" fx:id="name" prefHeight="31.0" prefWidth="182.0" promptText="Name" />
-            <Button fx:id="btn_adduser_submit" mnemonicParsing="false" onAction="#btn_adduser_submit_action" text="Add" />
+            <Button fx:id="btn_mainapp_adduser" mnemonicParsing="false" text="Add" onAction="#btn_mainapp_adduser_action"/>
             <Button mnemonicParsing="false" text="Edit" />
             <Button mnemonicParsing="false" text="Remove" />
             <HBox minWidth="1121.0" prefHeight="31.0" prefWidth="1121.0">
