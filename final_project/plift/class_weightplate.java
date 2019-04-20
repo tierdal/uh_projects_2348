@@ -1,6 +1,6 @@
 package plift;
 
-public class plift_weightplate {
+public class class_weightplate {
     double attempt_weight;
     double def_weight = attempt_weight - 20;
 

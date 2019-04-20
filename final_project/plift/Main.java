@@ -10,7 +10,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("splash.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("form_splash.fxml"));
         primaryStage.setTitle("plift - Lifting Calculator");
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();

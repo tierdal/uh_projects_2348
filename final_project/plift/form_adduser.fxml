@@ -10,7 +10,7 @@
 
 <?import java.lang.String?>
 <?import javafx.collections.FXCollections?>
-<AnchorPane prefHeight="200.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="plift.Controller">
+<AnchorPane prefHeight="200.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="plift.Controller_adduser">
    <children>
       <VBox prefHeight="200.0" prefWidth="300.0">
          <children>
@@ -89,7 +89,7 @@
                   </VBox>
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <Button alignment="CENTER" cancelButton="true" mnemonicParsing="false" prefHeight="59.0" prefWidth="100.0" text="Cancel" textAlignment="CENTER" />
+                        <Button fx:id="btn_adduser_cancel" alignment="CENTER" cancelButton="true" mnemonicParsing="false" onAction="#btn_adduser_cancel_action" prefHeight="59.0" prefWidth="100.0" text="Cancel" textAlignment="CENTER" />
                      </children>
                   </VBox>
                </children>

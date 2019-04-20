@@ -3,49 +3,45 @@
 //http://www.sqlitetutorial.net/sqlite-java/insert/
 //https://www.mkyong.com/java/java-convert-string-to-int/
 //https://stackoverflow.com/questions/18361195/javafx-how-to-load-populate-values-at-start-up
+//http://www.tutorialspoint.com/sqlite/sqlite_java.htm
+//https://stackoverflow.com/questions/52085575/populating-the-combobox-from-database
 
 package plift;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.control.ComboBox;
+import java.sql.*;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-import java.sql.*;
+import javafx.collections.FXCollections;
 
+import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.awt.*;
-import java.io.IOException;
 
-public class Controller {
-
-    @FXML public Button start_button;
-
-    @FXML public void setStart_button_action() throws IOException{
-        Stage stage = (Stage) start_button.getScene().getWindow();
-        stage.hide();
-        Stage secondaryStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("mainapp.fxml"));
-        secondaryStage.setTitle("plift - Lifting Calculator");
-        secondaryStage.setScene(new Scene(root, 1200, 600));
-        secondaryStage.show();
-    }
+public class Controller_adduser {
 
     @FXML public Button btn_adduser_submit;
+    @FXML public Button btn_adduser_cancel;
     @FXML public TextField field_adduser_name;
     @FXML public TextField field_adduser_age;
     @FXML public ComboBox field_adduser_gender;
@@ -53,7 +49,11 @@ public class Controller {
 
     @FXML public void btn_adduser_submit_action(){
         Stage stage = (Stage) btn_adduser_submit.getScene().getWindow();
-        //submit_user();
+        submit_user();
+        stage.hide();
+    }
+    @FXML public void btn_adduser_cancel_action(){
+        Stage stage = (Stage) btn_adduser_cancel.getScene().getWindow();
         stage.hide();
     }
 
@@ -71,7 +71,7 @@ public class Controller {
         return conn;
     }
 
-@FXML public void submit_user(){
+    @FXML public void submit_user(){
         Statement ps_conn;
 
         String field_adduser_name_value = field_adduser_name.getText();
@@ -93,14 +93,7 @@ public class Controller {
         }
     }
 
-    @FXML public Button btn_mainapp_adduser;
-
-    @FXML public void btn_mainapp_adduser_action() throws IOException{
-        Stage adduserStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("adduser.fxml"));
-        adduserStage.setTitle("plift - Add User");
-        adduserStage.setScene(new Scene(root, 300, 200));
-        adduserStage.show();
+    @FXML private void initialize() {
     }
 
 }
