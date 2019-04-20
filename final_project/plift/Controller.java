@@ -38,7 +38,7 @@ public class Controller {
         Stage secondaryStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("mainapp.fxml"));
         secondaryStage.setTitle("plift - Lifting Calculator");
-        secondaryStage.setScene(new Scene(root, 600, 575));
+        secondaryStage.setScene(new Scene(root, 1200, 600));
         secondaryStage.show();
     }
 }
