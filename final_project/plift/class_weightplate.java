@@ -1,21 +1,21 @@
 package plift;
 
 public class class_weightplate {
-    double attempt_weight;
-    double def_weight = attempt_weight - 20;
+    public void SetBarWeights(double attempt_weight){
+        double def_weight = attempt_weight - 20;
 
-    int count50 = 0;
-    int count25 = 0;
-    int count20 = 0;
-    int count15 = 0;
-    int count10 = 0;
-    int count5 = 0;
-    double count2_5 = 0;
-    double count1_5 = 0;
-    double count0_5 = 0;
-    double count0_25 = 0;
+        double count50 = 0;
+        double count25 = 0;
+        double count20 = 0;
+        double count15 = 0;
+        double count10 = 0;
+        double count5 = 0;
+        double count2_5 = 0;
+        double count1_5 = 0;
+        double count0_5 = 0;
+        double count0_25 = 0;
 
-    public void getweights(){
+
         while(def_weight >= 50){
             def_weight = def_weight - 50;
             count50++;

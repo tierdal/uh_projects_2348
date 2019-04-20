@@ -14,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.IOException;
 
@@ -71,6 +72,20 @@ public class Controller_mainapp {
         adduserStage.setTitle("plift - Add User");
         adduserStage.setScene(new Scene(root, 300, 200));
         adduserStage.show();
+    }
+
+    @FXML public TextField desired_weight;
+
+    @FXML public void setDesired_weight(){
+        String w = desired_weight.getText();
+        if (w.equals("")) {
+            System.out.println("Please enter something!");
+        } else {
+            System.out.println("You've entered " + w);
+            double attemptweight = Double.parseDouble(w);
+            class_weightplate setweight = new class_weightplate();
+            setweight.SetBarWeights(attemptweight);
+        }
     }
 
 }
