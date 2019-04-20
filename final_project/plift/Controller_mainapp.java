@@ -20,6 +20,7 @@ import java.io.IOException;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 import java.sql.*;
 
 public class Controller_mainapp {
@@ -87,5 +88,4 @@ public class Controller_mainapp {
             setweight.SetBarWeights(attemptweight);
         }
     }
-
 }
