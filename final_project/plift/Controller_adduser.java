@@ -49,11 +49,13 @@ public class Controller_adduser {
 
     @FXML public void btn_adduser_submit_action(){
         Stage stage = (Stage) btn_adduser_submit.getScene().getWindow();
+        System.out.println("Add user button click.");
         submit_user();
         stage.hide();
     }
     @FXML public void btn_adduser_cancel_action(){
         Stage stage = (Stage) btn_adduser_cancel.getScene().getWindow();
+        System.out.println("Cancel add user button click.");
         stage.hide();
     }
 

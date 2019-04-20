@@ -19,6 +19,7 @@ import java.io.IOException;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 import java.sql.*;
 
 public class Controller_mainapp {
@@ -73,4 +74,12 @@ public class Controller_mainapp {
         adduserStage.show();
     }
 
+    @FXML public TextField desired_weight;
+
+    @FXML public void setDesired_weight(){
+        String w = desired_weight.getText();
+        double attemptweight = Double.parseDouble(w);
+        class_weightplate setweight = new class_weightplate();
+        setweight.SetBarWeights(attemptweight);
+    }
 }

@@ -11,8 +11,7 @@ import java.io.IOException;
 
 public class Controller_splash {
 
-    @FXML
-    public Button start_button;
+    @FXML public Button start_button;
 
     @FXML public void setStart_button_action() throws IOException {
         Stage stage = (Stage) start_button.getScene().getWindow();
