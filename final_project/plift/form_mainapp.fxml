@@ -62,9 +62,9 @@
       </TableView>
       <ToolBar layoutY="59.0" prefHeight="45.0" prefWidth="1200.0">
          <items>
-            <ComboBox prefWidth="150.0" promptText="Lift Type" />
+            <ComboBox fx:id="lifttype" prefWidth="150.0" promptText="Lift Type" />
             <Label text="Desired Lift Weight" />
-            <TextField prefHeight="31.0" prefWidth="145.0" />
+            <TextField fx:id="desired_weight" onAction="#setDesired_weight" prefHeight="31.0" prefWidth="145.0" />
           <Button mnemonicParsing="false" text="Submit" />
          </items>
       </ToolBar>
