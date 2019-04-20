@@ -1,0 +1,7 @@
+//https://stackoverflow.com/questions/25037724/how-to-close-a-java-window-with-a-button-click-javafx-project
+//https://o7planning.org/en/11533/opening-a-new-window-in-javafx
+//http://www.sqlitetutorial.net/sqlite-java/insert/
+//https://www.mkyong.com/java/java-convert-string-to-int/
+//https://stackoverflow.com/questions/18361195/javafx-how-to-load-populate-values-at-start-up
+//http://www.tutorialspoint.com/sqlite/sqlite_java.htm
+//https://stackoverflow.com/questions/52085575/populating-the-combobox-from-database
