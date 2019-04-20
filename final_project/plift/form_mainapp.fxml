@@ -12,13 +12,13 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="500.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="plift.Controller">
+<AnchorPane prefHeight="500.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="plift.Controller_mainapp">
    <children>
       <Separator layoutY="45.0" minWidth="1200.0" prefHeight="14.0" prefWidth="1200.0" />
       <ToolBar prefHeight="45.0">
          <items>
-            <ComboBox id="name" fx:id="name" prefHeight="31.0" prefWidth="182.0" promptText="Name" />
-            <Button fx:id="btn_mainapp_adduser" mnemonicParsing="false" onAction="#btn_mainapp_adduser_action" text="Add" />
+            <ComboBox fx:id="combo_mainapp_name" prefHeight="31.0" prefWidth="182.0" promptText="Name" />
+            <Button fx:id="btn_mainapp_adduser" mnemonicParsing="false" text="Add" onAction="#btn_mainapp_adduser_action"/>
             <Button mnemonicParsing="false" text="Edit" />
             <Button mnemonicParsing="false" text="Remove" />
             <HBox minWidth="1121.0" prefHeight="31.0" prefWidth="1121.0">
