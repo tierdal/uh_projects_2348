@@ -156,16 +156,17 @@
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <TableView fx:id="mainapp_tableview" minHeight="-Infinity" prefHeight="435.0" prefWidth="800.0">
+                  <TableView fx:id="mainapp_tableview" minHeight="-Infinity" prefHeight="435.0" prefWidth="969.0">
                     <columns>
-                        <TableColumn prefWidth="105.0" text="Participant" />
-                        <TableColumn prefWidth="105.0" text="Age" />
-                        <TableColumn prefWidth="105.0" text="Gender" />
-                        <TableColumn prefWidth="105.0" text="Weight Class" />
-                        <TableColumn prefWidth="105.0" text="Type of Lift" />
-                        <TableColumn prefWidth="69.0" text="Attempt" />
-                        <TableColumn prefWidth="75.0" text="Weight" />
-                        <TableColumn prefWidth="75.0" text="Success?" />
+                        <TableColumn prefWidth="47.99998474121094" text="Id" />
+                        <TableColumn prefWidth="157.00001525878906" text="Participant" />
+                        <TableColumn prefWidth="68.0" text="Age" />
+                        <TableColumn prefWidth="89.0" text="Gender" />
+                        <TableColumn prefWidth="102.0" text="Weight" />
+                        <TableColumn prefWidth="122.0" text="Type of Lift" />
+                        <TableColumn prefWidth="113.0" text="Attempt #" />
+                        <TableColumn prefWidth="118.0" text="Attempted Weight" />
+                        <TableColumn prefWidth="66.0" text="Success?" />
                     </columns>
                   </TableView>
                   <HBox prefHeight="100.0" prefWidth="400.0" />
