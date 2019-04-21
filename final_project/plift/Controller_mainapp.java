@@ -32,6 +32,9 @@ public class Controller_mainapp {
     @FXML public Label label_mainapp_weight;
     @FXML public Label label_mainapp_gender;
 
+    private ObservableList<ObservableList> lift_data;
+    @FXML TableView mainapp_tableview;
+
 
     public String mainapp_name;
 
@@ -86,6 +89,7 @@ public class Controller_mainapp {
     private void initialize() {
 
         select_user_list();
+        populateDataTable();
     }
 
     public void select_user_list(){
@@ -156,12 +160,12 @@ public class Controller_mainapp {
                 conn.commit();
                 System.out.println("User Deleted!");
                 conn.close();
-                select_user_list();
             } catch (SQLException e) {
                 e.printStackTrace();
                 System.out.println("Error on Building Data");
             }
         }
+        select_user_list();
     }
 
     @FXML public TextField desired_weight;
@@ -177,4 +181,36 @@ public class Controller_mainapp {
             setweight.SetBarWeights(attemptweight);
         }
     }
+
+    private void populateDataTable() {
+
+        Connection conn = this.connect_db();
+
+        int lift_id;
+        int name_id;
+
+        String sql_main = "SELECT * FROM lifts ORDER BY id";
+        //String sql_getname = "SELECT name_id FROM lifts WHERE lift_id="+lift_id;
+
+        try {
+            PreparedStatement preparedStatement = conn.prepareStatement(sql_main);
+            ResultSet tableValues = preparedStatement.executeQuery();
+
+            while (tableValues.next()) {
+                ObservableList<String> rows = FXCollections.observableArrayList();
+                for (int counter = 1; counter <= tableValues.getMetaData().getColumnCount(); counter++) {
+                    rows.add(tableValues.getString(counter));
+                    System.out.println(tableValues.getString(counter));
+                }
+                //lift_data.add(unique_row);
+            }
+            //mainapp_tableview.getItems().addAll(lift_data);
+            lift_data = null;
+            tableValues.close();
+            conn.close();
+        } catch (SQLException tableQueryException) {
+            System.err.println(tableQueryException.toString());
+        }
+    }
+
 }

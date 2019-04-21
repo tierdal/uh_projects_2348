@@ -148,7 +148,7 @@
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <TableView minHeight="-Infinity" prefHeight="435.0" prefWidth="800.0">
+                  <TableView fx:id="mainapp_tableview" minHeight="-Infinity" prefHeight="435.0" prefWidth="800.0">
                     <columns>
                         <TableColumn prefWidth="105.0" text="Participant" />
                         <TableColumn prefWidth="105.0" text="Age" />
