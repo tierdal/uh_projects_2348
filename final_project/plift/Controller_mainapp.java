@@ -8,7 +8,6 @@
 
 package plift;
 
-import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -18,7 +17,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import java.io.IOException;
-
 import javafx.scene.control.TextField;
 
 import java.sql.*;
@@ -26,8 +24,12 @@ import java.sql.*;
 public class Controller_mainapp {
 
     @FXML public ComboBox<String> combo_mainapp_name;
+    @FXML public ComboBox<String> combo_mainapp_lifttype;
+    @FXML public ComboBox<String> combo_mainapp_attempt;
     @FXML public Button btn_mainapp_adduser;
     @FXML public Button btn_mainapp_edituser;
+    @FXML public TextField text_mainapp_desiredweight;
+    @FXML public CheckBox checkbox_mainapp_success;
     @FXML public Label label_mainapp_age;
     @FXML public Label label_mainapp_weight;
     @FXML public Label label_mainapp_gender;
@@ -35,7 +37,10 @@ public class Controller_mainapp {
     private ObservableList<ObservableList> lift_data;
     @FXML TableView mainapp_tableview;
 
-
+    public String user_name;
+    public String user_gender;
+    public String user_age;
+    public String user_weight;
     public String mainapp_name;
 
     private Connection connect_db() {
@@ -60,6 +65,7 @@ public class Controller_mainapp {
         //update user info once combo box changes
 
         Connection conn = this.connect_db();
+        user_name = combo_mainapp_name.getValue();
         if (combo_mainapp_name.getValue() == null) {
             System.out.println("No user selected.");
             label_mainapp_age.setText("##");
@@ -68,15 +74,18 @@ public class Controller_mainapp {
         } else {
             try {
                 ResultSet result_set;
-                String sql_age = "SELECT age FROM users WHERE name='" + combo_mainapp_name.getValue() + "'";
-                String sql_weight = "SELECT weight FROM users WHERE name='" + combo_mainapp_name.getValue() + "'";
-                String sql_gender = "SELECT gender FROM users WHERE name='" + combo_mainapp_name.getValue() + "'";
+                String sql_age = "SELECT age FROM users WHERE name='" + user_name + "'";
+                String sql_weight = "SELECT weight FROM users WHERE name='" + user_name + "'";
+                String sql_gender = "SELECT gender FROM users WHERE name='" + user_name + "'";
                 result_set = conn.createStatement().executeQuery(sql_age);
-                label_mainapp_age.setText(result_set.getString("age"));
+                user_age = result_set.getString("age");
+                label_mainapp_age.setText(user_age);
                 result_set = conn.createStatement().executeQuery(sql_weight);
-                label_mainapp_weight.setText(result_set.getString("weight"));
+                user_weight = result_set.getString("weight");
+                label_mainapp_weight.setText(user_weight);
                 result_set = conn.createStatement().executeQuery(sql_gender);
-                label_mainapp_gender.setText(result_set.getString("gender"));
+                user_gender = result_set.getString("gender");
+                label_mainapp_gender.setText(user_gender);
                 conn.close();
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -180,6 +189,34 @@ public class Controller_mainapp {
             double attemptweight = Double.parseDouble(w);
             setweight.SetBarWeights(attemptweight);
         }
+    }
+
+    @FXML public void submit_attempt(){
+        Statement ps_conn; //user_id
+
+        String field_success = "Nn";
+        String field_attemptnumber = String.valueOf(combo_mainapp_attempt.getValue());
+        String field_attempttype = String.valueOf(combo_mainapp_lifttype.getValue());
+        String field_attemptweight = String.valueOf(text_mainapp_desiredweight.getText());
+        Boolean field_success_isselected = checkbox_mainapp_success.isSelected();
+        if (field_success_isselected) {field_success = "Yes";}
+
+        Connection conn = this.connect_db();
+        try {
+            ps_conn = conn.createStatement();
+            String sql = "INSERT INTO lifts(user_name,user_gender,user_age,user_weight,attempt_number,attempt_type,attempt_weight,attempt_success) " +
+                    "VALUES('"+user_name+"','"+user_gender+"','"+user_age+"',"+user_weight+","+field_attemptnumber+",'"+field_attempttype+"',"+field_attemptweight+",'"+field_success+"')";
+            ps_conn.executeUpdate(sql);
+            ps_conn.close();
+            conn.commit();
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        combo_mainapp_attempt.setValue("");
+        combo_mainapp_lifttype.setValue("");
+        text_mainapp_desiredweight.setText("");
+        checkbox_mainapp_success.setSelected(false);
     }
 
     private void populateDataTable() {

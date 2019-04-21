@@ -97,7 +97,7 @@
                                  <children>
                                     <HBox prefWidth="210.0">
                                        <children>
-                                          <ComboBox fx:id="lifttype" prefHeight="35.0" prefWidth="200.0" promptText="Lift Type" visibleRowCount="3">
+                                          <ComboBox fx:id="combo_mainapp_lifttype" prefHeight="35.0" prefWidth="200.0" promptText="Lift Type" visibleRowCount="3">
                                              <items>
                                                 <FXCollections fx:factory="observableArrayList">
                                                    <String fx:value="Bench Press" />
@@ -117,25 +117,33 @@
                                     </HBox>
                                     <HBox prefWidth="150.0">
                                        <children>
-                                          <TextField fx:id="desired_weight" onAction="#setDesired_weight" prefHeight="35.0" prefWidth="140.0" />
+                                          <TextField fx:id="text_mainapp_desiredweight" prefHeight="35.0" prefWidth="140.0" />
                                           <HBox prefWidth="10.0" />
                                        </children>
                                     </HBox>
                                     <HBox layoutX="260.0" layoutY="10.0" prefWidth="160.0">
                                        <children>
-                                          <ComboBox fx:id="lifttype1" prefHeight="35.0" prefWidth="150.0" promptText="Attempt Number" />
+                                          <ComboBox fx:id="combo_mainapp_attempt" prefHeight="35.0" prefWidth="150.0" promptText="Attempt Number">
+                                             <items>
+                                                <FXCollections fx:factory="observableArrayList">
+                                                   <String fx:value="1" />
+                                                   <String fx:value="2" />
+                                                   <String fx:value="3" />
+                                                </FXCollections>
+                                             </items>
+                                          </ComboBox>
                                           <HBox prefWidth="10.0" />
                                        </children>
                                     </HBox>
                                     <HBox prefWidth="100.0">
                                        <children>
-                                          <CheckBox mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" text="Success?" />
+                                          <CheckBox fx:id="checkbox_mainapp_success" mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" text="Success?" />
                                        </children>
                                     </HBox>
                                     <HBox prefHeight="35.0" prefWidth="234.0" />
                                     <HBox prefWidth="200.0">
                                        <children>
-                                        <Button mnemonicParsing="false" onAction="#setDesired_weight" prefHeight="35.0" prefWidth="200.0" text="Submit" />
+                                        <Button fx:id="button_mainapp_submitattempt" mnemonicParsing="false" onAction="#submit_attempt" prefHeight="35.0" prefWidth="200.0" text="Submit" />
                                        </children>
                                     </HBox>
                                  </children>
