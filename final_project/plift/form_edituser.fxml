@@ -22,7 +22,7 @@
                         </VBox>
                         <VBox fillWidth="false" prefHeight="30.0" prefWidth="200.0">
                             <children>
-                                <TextField prefHeight="30.0" prefWidth="195.0" />
+                                <TextField fx:id="field_edituser_name" prefHeight="30.0" prefWidth="195.0" />
                             </children>
                         </VBox>
                     </children>
@@ -36,7 +36,7 @@
                         </VBox>
                         <VBox fillWidth="false" prefHeight="28.0" prefWidth="200.0">
                             <children>
-                                <TextField prefHeight="30.0" prefWidth="195.0" />
+                                <TextField fx:id="field_edituser_age" prefHeight="30.0" prefWidth="195.0" />
                             </children>
                         </VBox>
                     </children>
@@ -50,7 +50,7 @@
                         </VBox>
                         <VBox fillWidth="false" prefHeight="29.0" prefWidth="202.0">
                             <children>
-                                <ComboBox prefHeight="30.0" prefWidth="195.0" visibleRowCount="2" />
+                                <ComboBox fx:id="field_edituser_gender" prefHeight="30.0" prefWidth="195.0" visibleRowCount="2" />
                             </children>
                         </VBox>
                     </children>
@@ -64,7 +64,7 @@
                         </VBox>
                         <VBox fillWidth="false">
                             <children>
-                                <TextField prefHeight="30.0" prefWidth="195.0" />
+                                <TextField fx:id="field_edituser_weight" prefHeight="30.0" prefWidth="195.0" />
                             </children>
                         </VBox>
                     </children>
@@ -75,12 +75,12 @@
                         <VBox prefHeight="200.0" prefWidth="100.0" />
                         <VBox prefHeight="200.0" prefWidth="100.0">
                             <children>
-                                <Button defaultButton="true" mnemonicParsing="false" prefHeight="54.0" prefWidth="100.0" text="Submit" textAlignment="CENTER" />
+                                <Button fx:id="btn_edituser_submit" onAction="#btn_edituser_submit_action" defaultButton="true" mnemonicParsing="false" prefHeight="54.0" prefWidth="100.0" text="Submit" textAlignment="CENTER" />
                             </children>
                         </VBox>
                         <VBox prefHeight="200.0" prefWidth="100.0">
                             <children>
-                                <Button alignment="CENTER" cancelButton="true" mnemonicParsing="false" prefHeight="59.0" prefWidth="100.0" text="Cancel" textAlignment="CENTER" />
+                                <Button fx:id="btn_edituser_cancel" onAction="#btn_edituser_cancel_action" alignment="CENTER" cancelButton="true" mnemonicParsing="false" prefHeight="59.0" prefWidth="100.0" text="Cancel" textAlignment="CENTER" />
                             </children>
                         </VBox>
                     </children>

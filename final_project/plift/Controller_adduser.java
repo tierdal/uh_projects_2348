@@ -8,6 +8,8 @@
 
 package plift;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -46,6 +48,7 @@ public class Controller_adduser {
     @FXML public TextField field_adduser_age;
     @FXML public ComboBox field_adduser_gender;
     @FXML public TextField field_adduser_weight;
+
 
     @FXML public void btn_adduser_submit_action(){
         Stage stage = (Stage) btn_adduser_submit.getScene().getWindow();

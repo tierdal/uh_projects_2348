@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
@@ -12,10 +14,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.collections.FXCollections?>
-<?import java.lang.String?>
 
-<AnchorPane prefHeight="575.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="plift.Controller_mainapp">
+<AnchorPane fx:id="mainapp_id" prefHeight="575.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="plift.Controller_mainapp">
    <children>
       <VBox prefHeight="590.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -27,10 +27,10 @@
                            <children>
                               <HBox prefHeight="100.0" prefWidth="450.0">
                                  <children>
-                                    <ComboBox fx:id="combo_mainapp_name" onAction="#combo_mainapp_name_update" prefHeight="50.0" prefWidth="250.0" promptText="Name" />
+                                    <ComboBox fx:id="combo_mainapp_name" onAction="#combo_mainapp_name_update" onMouseClicked="#update_namelist" prefHeight="50.0" prefWidth="250.0" promptText="Name" />
                                     <Button fx:id="btn_mainapp_adduser" mnemonicParsing="false" onAction="#btn_mainapp_adduser_action" prefHeight="50.0" prefWidth="75.0" text="Add" />
-                                    <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="75.0" text="Edit" />
-                                    <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="75.0" text="Remove" />
+                                    <Button fx:id="btn_mainapp_edituser" mnemonicParsing="false" onAction="#btn_mainapp_edituser_action" prefHeight="50.0" prefWidth="75.0" text="Edit" />
+                                    <Button fx:id="btn_mainapp_deleteuser" mnemonicParsing="false" onAction="#btn_mainapp_deleteuser_action" prefHeight="50.0" prefWidth="75.0" text="Remove" />
                                  </children>
                               </HBox>
                               <HBox prefHeight="100.0" prefWidth="200.0" />
