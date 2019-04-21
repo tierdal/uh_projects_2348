@@ -163,7 +163,7 @@ public class Controller_mainapp {
             Connection conn = this.connect_db();
             mainapp_name = combo_mainapp_name.getValue();
             try {
-                String sql = "DELETE FROM users WHERE name = '" + mainapp_name + "';";//DELETE FROM users WHERE name='test2';
+                String sql = "DELETE FROM users WHERE name = '" + mainapp_name + "';";
                 PreparedStatement sql_statement = conn.prepareStatement(sql);
                 sql_statement.executeUpdate();
                 conn.commit();
@@ -177,10 +177,8 @@ public class Controller_mainapp {
         select_user_list();
     }
 
-    @FXML public TextField desired_weight;
-
     @FXML public void setDesired_weight(){
-        String w = desired_weight.getText();
+        String w = text_mainapp_desiredweight.getText();
         class_weightplate setweight = new class_weightplate();
         if (w.equals("")) {
             System.out.println("Please enter something!");

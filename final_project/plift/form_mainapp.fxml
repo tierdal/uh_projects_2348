@@ -117,7 +117,7 @@
                                     </HBox>
                                     <HBox prefWidth="150.0">
                                        <children>
-                                          <TextField fx:id="text_mainapp_desiredweight" prefHeight="35.0" prefWidth="140.0" />
+                                          <TextField fx:id="text_mainapp_desiredweight" onKeyTyped="#setDesired_weight" prefHeight="35.0" prefWidth="140.0" />
                                           <HBox prefWidth="10.0" />
                                        </children>
                                     </HBox>
