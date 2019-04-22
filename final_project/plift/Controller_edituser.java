@@ -1,11 +1,3 @@
-//https://stackoverflow.com/questions/25037724/how-to-close-a-java-window-with-a-button-click-javafx-project
-//https://o7planning.org/en/11533/opening-a-new-window-in-javafx
-//http://www.sqlitetutorial.net/sqlite-java/insert/
-//https://www.mkyong.com/java/java-convert-string-to-int/
-//https://stackoverflow.com/questions/18361195/javafx-how-to-load-populate-values-at-start-up
-//http://www.tutorialspoint.com/sqlite/sqlite_java.htm
-//https://stackoverflow.com/questions/52085575/populating-the-combobox-from-database
-
 package plift;
 
 import javafx.fxml.FXML;
@@ -14,10 +6,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class Controller_edituser {
 
@@ -28,9 +17,12 @@ public class Controller_edituser {
     @FXML public ComboBox field_edituser_gender;
     @FXML public TextField field_edituser_weight;
 
+    public String mainapp_name_edituser;
+    public String field_edituser_name_value_original;
+
     @FXML public void btn_edituser_submit_action(){
         Stage stage = (Stage) btn_edituser_submit.getScene().getWindow();
-        submit_user();
+        update_user();
         stage.hide();
     }
     @FXML public void btn_edituser_cancel_action(){
@@ -52,8 +44,7 @@ public class Controller_edituser {
         return conn;
     }
 
-    @FXML public void submit_user(){
-        Statement ps_conn;
+    @FXML public void update_user(){
 
         String field_edituser_name_value = field_edituser_name.getText();
         int field_edituser_age_value = Integer.parseInt(field_edituser_age.getText());
@@ -63,11 +54,11 @@ public class Controller_edituser {
         Connection conn = this.connect_db();
 
         try {
-            ps_conn = conn.createStatement();
-            String sql = "INSERT INTO users(name,age,gender,weight) VALUES('"+field_edituser_name_value+"',"+field_edituser_age_value+",'"+field_edituser_gender_value+"',"+field_edituser_weight_value+")";
-            ps_conn.executeUpdate(sql);
-            ps_conn.close();
+            String sql = "UPDATE users SET name='"+field_edituser_name_value+"',age="+field_edituser_age_value+",gender='"+field_edituser_gender_value+"',weight="+field_edituser_weight_value+" WHERE name='"+field_edituser_name_value_original+"'";
+            PreparedStatement ps_conn = conn.prepareStatement(sql);
+            ps_conn.executeUpdate();
             conn.commit();
+            ps_conn.close();
             conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -75,6 +66,35 @@ public class Controller_edituser {
     }
 
     @FXML private void initialize() {
+    }
+
+    @FXML public void edituser_pulldata(){
+
+        Connection conn = this.connect_db();
+
+        field_edituser_name.setText(mainapp_name_edituser);
+        field_edituser_name_value_original = mainapp_name_edituser;
+
+        try {
+            ResultSet result_set;
+            String sql_age = "SELECT age FROM users WHERE name='" + mainapp_name_edituser + "'";
+            String sql_gender = "SELECT gender FROM users WHERE name='" + mainapp_name_edituser + "'";
+            String sql_weight = "SELECT weight FROM users WHERE name='" + mainapp_name_edituser + "'";
+            result_set = conn.createStatement().executeQuery(sql_age);
+            field_edituser_age.setText(result_set.getString("age"));
+            result_set = conn.createStatement().executeQuery(sql_gender);
+            field_edituser_gender.setValue(result_set.getString("gender"));
+            result_set = conn.createStatement().executeQuery(sql_weight);
+            field_edituser_weight.setText(result_set.getString("weight"));
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Error on Building Data");
+        }
+    }
+
+    public void setMainapp_name_edituser(String mainapp_name){
+        this.mainapp_name_edituser = mainapp_name;
     }
 
 }

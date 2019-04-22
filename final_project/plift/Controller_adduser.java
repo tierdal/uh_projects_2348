@@ -1,43 +1,11 @@
-//https://stackoverflow.com/questions/25037724/how-to-close-a-java-window-with-a-button-click-javafx-project
-//https://o7planning.org/en/11533/opening-a-new-window-in-javafx
-//http://www.sqlitetutorial.net/sqlite-java/insert/
-//https://www.mkyong.com/java/java-convert-string-to-int/
-//https://stackoverflow.com/questions/18361195/javafx-how-to-load-populate-values-at-start-up
-//http://www.tutorialspoint.com/sqlite/sqlite_java.htm
-//https://stackoverflow.com/questions/52085575/populating-the-combobox-from-database
-
 package plift;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
-import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ComboBox;
 import java.sql.*;
-import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
-import javafx.application.Application;
-import javafx.collections.FXCollections;
-
-import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.awt.*;
-
 public class Controller_adduser {
 
     @FXML public Button btn_adduser_submit;
@@ -46,6 +14,7 @@ public class Controller_adduser {
     @FXML public TextField field_adduser_age;
     @FXML public ComboBox field_adduser_gender;
     @FXML public TextField field_adduser_weight;
+
 
     @FXML public void btn_adduser_submit_action(){
         Stage stage = (Stage) btn_adduser_submit.getScene().getWindow();
