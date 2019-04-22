@@ -7,3 +7,8 @@ http://www.tutorialspoint.com/sqlite/sqlite_java.htm
 https://stackoverflow.com/questions/52085575/populating-the-combobox-from-database
 https://code.makery.ch/blog/javafx-dialogs-official/
 https://stackoverflow.com/questions/44807580/javafx-access-parent-controller-class-from-fxml-child
+https://stackoverflow.com/questions/30146414/tableview-javafx-is-showing-only-blank-lines
+https://www.reddit.com/r/javahelp/comments/5wj9v3/javafx_tableview_populated_but_text_is/
+https://stackoverflow.com/questions/50612023/javafx-setcellvaluefactory
+https://stackoverflow.com/questions/43704490/why-is-my-javafx-tableview-empty
+https://stackoverflow.com/questions/18941093/how-to-fill-up-a-tableview-with-database-data

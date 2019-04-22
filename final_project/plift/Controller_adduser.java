@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ComboBox;
 import java.sql.*;
+
 public class Controller_adduser {
 
     @FXML public Button btn_adduser_submit;
