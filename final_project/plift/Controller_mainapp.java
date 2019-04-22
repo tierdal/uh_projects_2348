@@ -193,7 +193,7 @@ public class Controller_mainapp {
     @FXML public void submit_attempt(){
         Statement ps_conn;
 
-        String field_success = "Nn";
+        String field_success = "No";
         String field_attemptnumber = String.valueOf(combo_mainapp_attempt.getValue());
         String field_attempttype = String.valueOf(combo_mainapp_lifttype.getValue());
         String field_attemptweight = String.valueOf(text_mainapp_desiredweight.getText());
