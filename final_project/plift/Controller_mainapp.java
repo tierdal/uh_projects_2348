@@ -25,7 +25,7 @@ public class Controller_mainapp {
     @FXML public Button btn_mainapp_adduser,btn_mainapp_edituser;
     @FXML public TextField text_mainapp_desiredweight;
     @FXML public CheckBox checkbox_mainapp_success;
-    @FXML public Label label_mainapp_age,label_mainapp_weight,label_mainapp_gender;
+    @FXML public Label label_50, label_25, label_20, label_15, label_10, label_5, label_2_5, label_1_25, label_0_5, label_0_25, label_mainapp_age,label_mainapp_weight,label_mainapp_gender;
     @FXML public TableColumn col_1,col_2,col_3,col_4,col_5,col_6,col_7,col_8,col_9;
 
     private ObservableList<LiftDataTableModel> lift_data;
@@ -184,9 +184,19 @@ public class Controller_mainapp {
         if (w.equals("")) {
             System.out.println("Please enter something!");
         } else {
-            System.out.println("You've entered " + w);
+            //System.out.println("You've entered " + w);
             double attemptweight = Double.parseDouble(w);
             setweight.SetBarWeights(attemptweight);
+            label_50.setText("50KG Weight Plates: " + setweight.count50);
+            label_25.setText("25KG Weight Plates: " + setweight.count25);
+            label_20.setText("20KG Weight Plates: " + setweight.count20);
+            label_15.setText("15KG Weight Plates: " + setweight.count15);
+            label_10.setText("10KG Weight Plates: " + setweight.count10);
+            label_5.setText("5KG Weight Plates: " + setweight.count5);
+            label_2_5.setText("2.5KG Weight Plates: " + setweight.count2_5);
+            label_1_25.setText("1.25KG Weight Plates: " + setweight.count1_25);
+            label_0_5.setText("0.5KG Weight Plates: " + setweight.count0_5);
+            label_0_25.setText("0.25KG Weight Plates: " + setweight.count0_25);
         }
     }
 
