@@ -1,13 +1,7 @@
-//https://stackoverflow.com/questions/25037724/how-to-close-a-java-window-with-a-button-click-javafx-project
-//https://o7planning.org/en/11533/opening-a-new-window-in-javafx
-//http://www.sqlitetutorial.net/sqlite-java/insert/
-//https://www.mkyong.com/java/java-convert-string-to-int/
-//https://stackoverflow.com/questions/18361195/javafx-how-to-load-populate-values-at-start-up
-//http://www.tutorialspoint.com/sqlite/sqlite_java.htm
-//https://stackoverflow.com/questions/52085575/populating-the-combobox-from-database
-
 package plift;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -15,33 +9,29 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import java.io.IOException;
 import javafx.scene.control.TextField;
-
+import java.sql.Connection;
+import java.sql.ResultSet;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TableColumn;
 import java.sql.*;
 
 public class Controller_mainapp {
 
-    @FXML public ComboBox<String> combo_mainapp_name;
-    @FXML public ComboBox<String> combo_mainapp_lifttype;
-    @FXML public ComboBox<String> combo_mainapp_attempt;
-    @FXML public Button btn_mainapp_adduser;
-    @FXML public Button btn_mainapp_edituser;
+    @FXML public ComboBox<String> combo_mainapp_name,combo_mainapp_lifttype,combo_mainapp_attempt;
+    @FXML public Button btn_mainapp_adduser,btn_mainapp_edituser;
     @FXML public TextField text_mainapp_desiredweight;
     @FXML public CheckBox checkbox_mainapp_success;
-    @FXML public Label label_mainapp_age;
-    @FXML public Label label_mainapp_weight;
-    @FXML public Label label_mainapp_gender;
+    @FXML public Label label_mainapp_age,label_mainapp_weight,label_mainapp_gender;
+    @FXML public TableColumn col_1,col_2,col_3,col_4,col_5,col_6,col_7,col_8,col_9;
 
-    private ObservableList<ObservableList> lift_data;
+    private ObservableList<LiftDataTableModel> lift_data;
     @FXML TableView mainapp_tableview;
 
-    public String user_name;
-    public String user_gender;
-    public String user_age;
-    public String user_weight;
-    public String mainapp_name;
+    public String user_name,user_gender,user_age,user_weight,mainapp_name;
 
     private Connection connect_db() {
         // SQLite connection string
@@ -94,11 +84,22 @@ public class Controller_mainapp {
         }
     }
 
-    @FXML
-    private void initialize() {
+    @FXML private void initialize() {
+
+        col_1.setCellValueFactory(new PropertyValueFactory<LiftDataTableModel,String>("id"));
+        col_2.setCellValueFactory(new PropertyValueFactory<LiftDataTableModel,String>("name"));
+        col_3.setCellValueFactory(new PropertyValueFactory<LiftDataTableModel,String>("age"));
+        col_4.setCellValueFactory(new PropertyValueFactory<LiftDataTableModel,String>("gender"));
+        col_5.setCellValueFactory(new PropertyValueFactory<LiftDataTableModel,String>("weight"));
+        col_6.setCellValueFactory(new PropertyValueFactory<LiftDataTableModel,String>("atype"));
+        col_7.setCellValueFactory(new PropertyValueFactory<LiftDataTableModel,String>("anumber"));
+        col_8.setCellValueFactory(new PropertyValueFactory<LiftDataTableModel,String>("aweight"));
+        col_9.setCellValueFactory(new PropertyValueFactory<LiftDataTableModel,String>("success"));
 
         select_user_list();
         populateDataTable();
+
+
     }
 
     public void select_user_list(){
@@ -190,9 +191,9 @@ public class Controller_mainapp {
     }
 
     @FXML public void submit_attempt(){
-        Statement ps_conn; //user_id
+        Statement ps_conn;
 
-        String field_success = "Nn";
+        String field_success = "No";
         String field_attemptnumber = String.valueOf(combo_mainapp_attempt.getValue());
         String field_attempttype = String.valueOf(combo_mainapp_lifttype.getValue());
         String field_attemptweight = String.valueOf(text_mainapp_desiredweight.getText());
@@ -215,36 +216,152 @@ public class Controller_mainapp {
         combo_mainapp_lifttype.setValue("");
         text_mainapp_desiredweight.setText("");
         checkbox_mainapp_success.setSelected(false);
+        populateDataTable();
     }
 
     private void populateDataTable() {
 
         Connection conn = this.connect_db();
-
-        int lift_id;
-        int name_id;
+        lift_data = FXCollections.observableArrayList();
 
         String sql_main = "SELECT * FROM lifts ORDER BY id";
-        //String sql_getname = "SELECT name_id FROM lifts WHERE lift_id="+lift_id;
 
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(sql_main);
-            ResultSet tableValues = preparedStatement.executeQuery();
-
-            while (tableValues.next()) {
-                ObservableList<String> rows = FXCollections.observableArrayList();
-                for (int counter = 1; counter <= tableValues.getMetaData().getColumnCount(); counter++) {
-                    rows.add(tableValues.getString(counter));
-                    System.out.println(tableValues.getString(counter));
-                }
-                //lift_data.add(unique_row);
+            ResultSet result_set = preparedStatement.executeQuery();
+            while (result_set.next()) {
+                lift_data.add(new LiftDataTableModel(result_set.getString(1),result_set.getString(2),result_set.getString(3),result_set.getString(4),result_set.getString(5),result_set.getString(6),result_set.getString(7),result_set.getString(8),result_set.getString(9)));
+                //System.out.println(lift_data);
             }
-            //mainapp_tableview.getItems().addAll(lift_data);
-            lift_data = null;
-            tableValues.close();
+            mainapp_tableview.setItems(lift_data);
+            //System.out.println(mainapp_tableview.getItems());
+            result_set.close();
             conn.close();
         } catch (SQLException tableQueryException) {
             System.err.println(tableQueryException.toString());
+        }
+    }
+
+    public class LiftDataTableModel{
+        private final StringProperty id = new SimpleStringProperty();
+        private final StringProperty name = new SimpleStringProperty();
+        private final StringProperty gender = new SimpleStringProperty();
+        private final StringProperty age = new SimpleStringProperty();
+        private final StringProperty weight = new SimpleStringProperty();
+        private final StringProperty anumber = new SimpleStringProperty();
+        private final StringProperty atype = new SimpleStringProperty();
+        private final StringProperty aweight = new SimpleStringProperty();
+        private final StringProperty success = new SimpleStringProperty();
+
+        public LiftDataTableModel(String id_i, String name_n, String gender_g, String age_a, String weight_w, String attempt_a, String attempt_type_a, String attempt_weight_a, String success_s){
+            id.set(id_i);
+            name.set(name_n);
+            gender.set(gender_g);
+            age.set(age_a);
+            weight.set(weight_w);
+            anumber.set(attempt_a);
+            atype.set(attempt_type_a);
+            aweight.set(attempt_weight_a);
+            success.set(success_s);
+        }
+
+        public String getId() {
+            return id.get();
+        }
+
+        public StringProperty idProperty() {
+            return id;
+        }
+        public void setId(String id_i){
+            id.set(id_i);
+        }
+
+        public String getName() {
+            return name.get();
+        }
+
+        public StringProperty nameProperty() {
+            return name;
+        }
+        public void setName(String name_n){
+            name.set(name_n);
+        }
+
+        public String getGender() {
+            return gender.get();
+        }
+
+        public StringProperty genderProperty() {
+            return gender;
+        }
+        public void setGender(String gender_g){
+            gender.set(gender_g);
+        }
+
+        public String getAge() {
+            return age.get();
+        }
+
+        public StringProperty ageProperty() {
+            return age;
+        }
+        public void setAge(String age_a){
+            gender.set(age_a);
+        }
+
+        public String getWeight() {
+            return weight.get();
+        }
+
+        public StringProperty weightProperty() {
+            return weight;
+        }
+        public void setWeight(String weight_w){
+            weight.set(weight_w);
+        }
+
+        public String getAnumber() {
+            return anumber.get();
+        }
+
+        public StringProperty anumberProperty() {
+            return anumber;
+        }
+        public void setAnumber(String attempt_a){
+            anumber.set(attempt_a);
+        }
+
+        public String getAtype() {
+            return atype.get();
+        }
+
+        public StringProperty atypeProperty() {
+            return atype;
+        }
+        public void setAtype(String attempt_type_a){
+            atype.set(attempt_type_a);
+        }
+
+        public String getAweight() {
+            return aweight.get();
+        }
+
+        public StringProperty aweightProperty() {
+            return aweight;
+        }
+        public void setAweight(String attempt_weight_a){
+            aweight.set(attempt_weight_a);
+        }
+
+        public String getSuccess() {
+            return success.get();
+        }
+
+        public StringProperty successProperty() {
+            return success;
+        }
+        public void setSuccess(String success_s){
+            success.set(success_s);
         }
     }
 
