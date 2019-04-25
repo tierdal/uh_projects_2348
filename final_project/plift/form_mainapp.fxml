@@ -2,6 +2,7 @@
 
 <?import java.lang.String?>
 <?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
@@ -119,7 +120,7 @@
                                     </HBox>
                                     <HBox prefWidth="150.0">
                                        <children>
-                                          <TextField fx:id="text_mainapp_desiredweight" onKeyTyped="#setDesired_weight" prefHeight="35.0" prefWidth="140.0" />
+                                          <TextField fx:id="text_mainapp_desiredweight" onKeyTyped="#setDesired_weight" prefHeight="35.0" prefWidth="140.0" promptText="20KG Minimum" />
                                           <HBox prefWidth="10.0" />
                                        </children>
                                     </HBox>
@@ -142,10 +143,10 @@
                                           <CheckBox fx:id="checkbox_mainapp_success" mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" text="Success?" />
                                        </children>
                                     </HBox>
-                                    <HBox prefHeight="35.0" prefWidth="234.0" />
-                                    <HBox prefWidth="200.0">
+                                    <HBox prefHeight="35.0" prefWidth="225.0" />
+                                    <HBox prefHeight="35.0" prefWidth="200.0">
                                        <children>
-                                        <Button fx:id="button_mainapp_submitattempt" mnemonicParsing="false" onAction="#submit_attempt" prefHeight="35.0" prefWidth="200.0" text="Submit" />
+                                        <Button fx:id="button_mainapp_submitattempt" mnemonicParsing="false" onAction="#submit_attempt" prefHeight="35.0" prefWidth="230.0" text="Submit" />
                                        </children>
                                     </HBox>
                                  </children>
@@ -209,21 +210,197 @@
                   </TableView>
                   <VBox alignment="CENTER_LEFT" prefHeight="435.0" prefWidth="229.0">
                      <children>
-                        <Label text="You will need:">
-                           <font>
-                              <Font name="Calibri Bold" size="15.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="label_50" />
-                        <Label fx:id="label_25" />
-                        <Label fx:id="label_20" />
-                        <Label fx:id="label_15" />
-                        <Label fx:id="label_10" />
-                        <Label fx:id="label_5" />
-                        <Label fx:id="label_2_5" />
-                        <Label fx:id="label_1_25" />
-                        <Label fx:id="label_0_5" />
-                        <Label fx:id="label_0_25" />
+                        <VBox prefHeight="35.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="31.0" prefWidth="230.0" text="Load Configuration" textAlignment="CENTER" underline="true">
+                                 <font>
+                                    <Font name="Calibri Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="400.0">
+                           <children>
+                              <VBox>
+                                 <children>
+                                    <VBox fx:id="weightplate_0025" alignment="CENTER" maxHeight="25.0" maxWidth="110.0" minHeight="0.0" prefHeight="0.0" style="-fx-border-color: black;">
+                                       <VBox.margin>
+                                          <Insets left="60.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <Label fx:id="label_0_25" alignment="CENTER" textAlignment="CENTER" />
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="weightplate_0050" alignment="CENTER" maxHeight="25.0" maxWidth="120.0" minHeight="0.0" prefHeight="0.0" style="-fx-border-color: black;">
+                                       <VBox.margin>
+                                          <Insets left="55.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <Label fx:id="label_0_5" alignment="CENTER" textAlignment="CENTER" />
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="weightplate_0125" alignment="CENTER" maxHeight="25.0" maxWidth="130.0" minHeight="0.0" prefHeight="0.0" style="-fx-border-color: black;">
+                                       <VBox.margin>
+                                          <Insets left="50.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <Label fx:id="label_1_25" alignment="CENTER" textAlignment="CENTER" />
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="weightplate_0250" alignment="CENTER" maxHeight="25.0" maxWidth="140.0" minHeight="0.0" prefHeight="0.0" style="-fx-border-color: black;">
+                                       <VBox.margin>
+                                          <Insets left="45.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <Label fx:id="label_2_5" alignment="CENTER" textAlignment="CENTER" />
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="weightplate_0500" alignment="CENTER" maxHeight="25.0" maxWidth="150.0" minHeight="0.0" prefHeight="0.0" style="-fx-border-color: black;">
+                                       <VBox.margin>
+                                          <Insets left="40.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <Label fx:id="label_5" alignment="CENTER" textAlignment="CENTER" />
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="weightplate_1000" alignment="CENTER" maxHeight="25.0" maxWidth="160.0" minHeight="0.0" prefHeight="0.0" style="-fx-border-color: black;">
+                                       <VBox.margin>
+                                          <Insets left="35.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <Label fx:id="label_10" alignment="CENTER" />
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="weightplate_1500" alignment="CENTER" maxHeight="25.0" maxWidth="170.0" minHeight="0.0" prefHeight="0.0" style="-fx-border-color: black;">
+                                       <VBox.margin>
+                                          <Insets left="30.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <Label fx:id="label_15" alignment="CENTER" textAlignment="CENTER" />
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="weightplate_2000" alignment="CENTER" maxHeight="25.0" maxWidth="180.0" minHeight="0.0" prefHeight="0.0" style="-fx-border-color: black;">
+                                       <VBox.margin>
+                                          <Insets left="25.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <Label fx:id="label_20" alignment="CENTER" textAlignment="CENTER" />
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="weightplate_2500" alignment="CENTER" maxHeight="25.0" maxWidth="190.0" minHeight="0.0" prefHeight="0.0" style="-fx-border-color: black;">
+                                       <VBox.margin>
+                                          <Insets left="20.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <Label fx:id="label_25" alignment="CENTER" textAlignment="CENTER" />
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="weightplate_5000" alignment="CENTER" maxHeight="25.0" maxWidth="200.0" minHeight="0.0" prefHeight="0.0" style="-fx-border-color: black;">
+                                       <VBox.margin>
+                                          <Insets left="15.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <Label fx:id="label_50" alignment="CENTER" textAlignment="CENTER" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </VBox>
+                              <VBox maxWidth="30.0" prefHeight="150.0" style="-fx-border-color: black;">
+                                 <VBox.margin>
+                                    <Insets left="100.0" />
+                                 </VBox.margin>
+                                 <children>
+                                    <Label fx:id="label_50_11" alignment="CENTER" minWidth="30.0" prefHeight="20.0" prefWidth="30.0" rotate="270.0" text="20KG" textAlignment="CENTER">
+                                       <VBox.margin>
+                                          <Insets top="65.0" />
+                                       </VBox.margin></Label>
+                                 </children>
+                              </VBox>
+                              <VBox layoutX="10.0" layoutY="10.0">
+                                 <children>
+                                    <VBox fx:id="weightplate_5000_1" alignment="CENTER" maxHeight="25.0" maxWidth="200.0" minHeight="0.0" prefHeight="0.0" style="-fx-border-color: black;">
+                                       <VBox.margin>
+                                          <Insets left="15.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <Label fx:id="label_50_1" alignment="CENTER" textAlignment="CENTER" />
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="weightplate_2500_1" alignment="CENTER" maxHeight="25.0" maxWidth="190.0" minHeight="0.0" prefHeight="0.0" style="-fx-border-color: black;">
+                                       <VBox.margin>
+                                          <Insets left="20.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <Label fx:id="label_25_1" alignment="CENTER" textAlignment="CENTER" />
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="weightplate_2000_1" alignment="CENTER" maxHeight="25.0" maxWidth="180.0" minHeight="0.0" prefHeight="0.0" style="-fx-border-color: black;">
+                                       <VBox.margin>
+                                          <Insets left="25.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <Label fx:id="label_20_1" alignment="CENTER" textAlignment="CENTER" />
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="weightplate_1500_1" alignment="CENTER" maxHeight="25.0" maxWidth="170.0" minHeight="0.0" prefHeight="0.0" style="-fx-border-color: black;">
+                                       <VBox.margin>
+                                          <Insets left="30.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <Label fx:id="label_15_1" alignment="CENTER" textAlignment="CENTER" />
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="weightplate_1000_1" alignment="CENTER" maxHeight="25.0" maxWidth="160.0" minHeight="0.0" prefHeight="0.0" style="-fx-border-color: black;">
+                                       <VBox.margin>
+                                          <Insets left="35.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <Label fx:id="label_10_1" alignment="CENTER" />
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="weightplate_0500_1" alignment="CENTER" maxHeight="25.0" maxWidth="150.0" minHeight="0.0" prefHeight="0.0" style="-fx-border-color: black;">
+                                       <VBox.margin>
+                                          <Insets left="40.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <Label fx:id="label_5_1" alignment="CENTER" textAlignment="CENTER" />
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="weightplate_0250_1" alignment="CENTER" maxHeight="25.0" maxWidth="140.0" minHeight="0.0" prefHeight="0.0" style="-fx-border-color: black;">
+                                       <VBox.margin>
+                                          <Insets left="45.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <Label fx:id="label_2_5_1" alignment="CENTER" textAlignment="CENTER" />
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="weightplate_0125_1" alignment="CENTER" maxHeight="25.0" maxWidth="130.0" minHeight="0.0" prefHeight="0.0" style="-fx-border-color: black;">
+                                       <VBox.margin>
+                                          <Insets left="50.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <Label fx:id="label_1_25_1" alignment="CENTER" textAlignment="CENTER" />
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="weightplate_0050_1" alignment="CENTER" maxHeight="25.0" maxWidth="120.0" minHeight="0.0" prefHeight="0.0" style="-fx-border-color: black;">
+                                       <VBox.margin>
+                                          <Insets left="55.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <Label fx:id="label_0_5_1" alignment="CENTER" textAlignment="CENTER" />
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="weightplate_0025_1" alignment="CENTER" maxHeight="25.0" maxWidth="110.0" minHeight="0.0" prefHeight="0.0" style="-fx-border-color: black;">
+                                       <VBox.margin>
+                                          <Insets left="60.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <Label fx:id="label_0_25_1" alignment="CENTER" textAlignment="CENTER" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </VBox>
+                           </children></VBox>
                      </children>
                   </VBox>
                </children>
