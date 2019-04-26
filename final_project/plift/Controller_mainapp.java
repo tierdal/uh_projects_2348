@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import java.io.IOException;
 import javafx.scene.control.TextField;
@@ -26,7 +27,10 @@ public class Controller_mainapp {
     @FXML public TextField text_mainapp_desiredweight;
     @FXML public CheckBox checkbox_mainapp_success;
     @FXML public Label label_50, label_25, label_20, label_15, label_10, label_5, label_2_5, label_1_25, label_0_5, label_0_25, label_mainapp_age,label_mainapp_weight,label_mainapp_gender;
+    @FXML public Label label_50_1, label_25_1, label_20_1, label_15_1, label_10_1, label_5_1, label_2_5_1, label_1_25_1, label_0_5_1, label_0_25_1;
     @FXML public TableColumn col_1,col_2,col_3,col_4,col_5,col_6,col_7,col_8,col_9;
+    @FXML public VBox weightplate_5000,weightplate_2500,weightplate_2000,weightplate_1500,weightplate_1000,weightplate_0500,weightplate_0250,weightplate_0125,weightplate_0050,weightplate_0025;
+    @FXML public VBox weightplate_5000_1,weightplate_2500_1,weightplate_2000_1,weightplate_1500_1,weightplate_1000_1,weightplate_0500_1,weightplate_0250_1,weightplate_0125_1,weightplate_0050_1,weightplate_0025_1;
 
     private ObservableList<LiftDataTableModel> lift_data;
     @FXML TableView mainapp_tableview;
@@ -184,19 +188,118 @@ public class Controller_mainapp {
         if (w.equals("")) {
             System.out.println("Please enter something!");
         } else {
-            //System.out.println("You've entered " + w);
             double attemptweight = Double.parseDouble(w);
             setweight.SetBarWeights(attemptweight);
-            label_50.setText("50KG Weight Plates: " + setweight.count50);
-            label_25.setText("25KG Weight Plates: " + setweight.count25);
-            label_20.setText("20KG Weight Plates: " + setweight.count20);
-            label_15.setText("15KG Weight Plates: " + setweight.count15);
-            label_10.setText("10KG Weight Plates: " + setweight.count10);
-            label_5.setText("5KG Weight Plates: " + setweight.count5);
-            label_2_5.setText("2.5KG Weight Plates: " + setweight.count2_5);
-            label_1_25.setText("1.25KG Weight Plates: " + setweight.count1_25);
-            label_0_5.setText("0.5KG Weight Plates: " + setweight.count0_5);
-            label_0_25.setText("0.25KG Weight Plates: " + setweight.count0_25);
+            if (setweight.count50>0){
+                label_50.setText("50KG : x" + setweight.count50/2);
+                weightplate_5000.setPrefHeight(25);
+                label_50_1.setText("50KG : x" + setweight.count50/2);
+                weightplate_5000_1.setPrefHeight(25);
+            } else {
+                label_50.setText("");
+                weightplate_5000.setPrefHeight(0);
+                label_50_1.setText("");
+                weightplate_5000_1.setPrefHeight(0);
+            }
+            if (setweight.count25>0){
+                label_25.setText("25KG : x" + setweight.count25/2);
+                weightplate_2500.setPrefHeight(25);
+                label_25_1.setText("25KG : x" + setweight.count25/2);
+                weightplate_2500_1.setPrefHeight(25);
+            } else {
+                label_25.setText("");
+                weightplate_2500.setPrefHeight(0);
+                label_25_1.setText("");
+                weightplate_2500_1.setPrefHeight(0);
+            }
+            if (setweight.count20>0){
+                label_20.setText("20KG : x" + setweight.count20/2);
+                weightplate_2000.setPrefHeight(25);
+                label_20_1.setText("20KG : x" + setweight.count20/2);
+                weightplate_2000_1.setPrefHeight(25);
+            } else {
+                label_20.setText("");
+                weightplate_2000.setPrefHeight(0);
+                label_20_1.setText("");
+                weightplate_2000_1.setPrefHeight(0);
+            }
+            if (setweight.count15>0){
+                label_15.setText("15KG : x" + setweight.count15/2);
+                weightplate_1500.setPrefHeight(25);
+                label_15_1.setText("15KG : x" + setweight.count15/2);
+                weightplate_1500_1.setPrefHeight(25);
+            } else {
+                label_15.setText("");
+                weightplate_1500.setPrefHeight(0);
+                label_15_1.setText("");
+                weightplate_1500_1.setPrefHeight(0);
+            }
+            if (setweight.count10>0){
+                label_10.setText("10KG : x" + setweight.count10/2);
+                weightplate_1000.setPrefHeight(25);
+                label_10_1.setText("10KG : x" + setweight.count10/2);
+                weightplate_1000_1.setPrefHeight(25);
+            } else {
+                label_10.setText("");
+                weightplate_1000.setPrefHeight(0);
+                label_10_1.setText("");
+                weightplate_1000_1.setPrefHeight(0);
+            }
+            if (setweight.count5>0){
+                label_5.setText("5KG : x" + setweight.count5/2);
+                weightplate_0500.setPrefHeight(25);
+                label_5_1.setText("5KG : x" + setweight.count5/2);
+                weightplate_0500_1.setPrefHeight(25);
+            } else {
+                label_5.setText("");
+                weightplate_0500.setPrefHeight(0);
+                label_5_1.setText("");
+                weightplate_0500_1.setPrefHeight(0);
+            }
+            if (setweight.count2_5>0){
+                label_2_5.setText("2.5KG : x" + setweight.count2_5/2);
+                weightplate_0250.setPrefHeight(25);
+                label_2_5_1.setText("2.5KG : x" + setweight.count2_5/2);
+                weightplate_0250_1.setPrefHeight(25);
+            } else {
+                label_2_5.setText("");
+                weightplate_0250.setPrefHeight(0);
+                label_2_5_1.setText("");
+                weightplate_0250_1.setPrefHeight(0);
+            }
+            if (setweight.count1_25>0){
+                label_1_25.setText("1.25KG : x" + setweight.count1_25/2);
+                weightplate_0125.setPrefHeight(25);
+                label_1_25_1.setText("1.25KG : x" + setweight.count1_25/2);
+                weightplate_0125_1.setPrefHeight(25);
+            } else {
+                label_1_25.setText("");
+                weightplate_0125.setPrefHeight(0);
+                label_1_25_1.setText("");
+                weightplate_0125_1.setPrefHeight(0);
+            }
+            if (setweight.count0_5>0){
+                label_0_5.setText("0.5KG : x" + setweight.count0_5/2);
+                weightplate_0050.setPrefHeight(25);
+                label_0_5_1.setText("0.5KG : x" + setweight.count0_5/2);
+                weightplate_0050_1.setPrefHeight(25);
+            } else {
+                label_0_5.setText("");
+                weightplate_0050.setPrefHeight(0);
+                label_0_5_1.setText("");
+                weightplate_0050_1.setPrefHeight(0);
+            }
+            if (setweight.count0_25>0){
+                label_0_25.setText("0.25KG : x" + setweight.count0_25/2);
+                weightplate_0025.setPrefHeight(25);
+                label_0_25_1.setText("0.25KG : x" + setweight.count0_25/2);
+                weightplate_0025_1.setPrefHeight(25);
+            } else {
+                label_0_25.setText("");
+                weightplate_0025.setPrefHeight(0);
+                label_0_25_1.setText("");
+                weightplate_0025_1.setPrefHeight(0);
+            }
         }
     }
 
